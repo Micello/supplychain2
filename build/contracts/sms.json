@@ -1,0 +1,1336 @@
+{
+  "contractName": "sms",
+  "abi": [
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "name": "id_lot",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "name": "barcodeId",
+          "type": "string"
+        },
+        {
+          "indexed": false,
+          "name": "lot_user_addr",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "name": "source",
+          "type": "string"
+        },
+        {
+          "indexed": false,
+          "name": "variety",
+          "type": "string"
+        },
+        {
+          "indexed": false,
+          "name": "quality",
+          "type": "string"
+        },
+        {
+          "indexed": false,
+          "name": "temprature",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "name": "humidity",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "name": "date",
+          "type": "uint256"
+        }
+      ],
+      "name": "NewLot",
+      "type": "event"
+    }
+  ],
+  "bytecode": "0x6080604052348015600f57600080fd5b50604380601d6000396000f3fe6080604052600080fdfea265627a7a723058209f7523a8cec9bf8659c85be23499027abc3f39b4b1c7776c11c36b88c936f87c6c6578706572696d656e74616cf50037",
+  "deployedBytecode": "0x6080604052600080fdfea265627a7a723058209f7523a8cec9bf8659c85be23499027abc3f39b4b1c7776c11c36b88c936f87c6c6578706572696d656e74616cf50037",
+  "sourceMap": "147:566:6:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;147:566:6;;;;;;;",
+  "deployedSourceMap": "147:566:6:-;;;;;",
+  "source": "// SPDX-License-Identifier: GPL-3.0\npragma experimental ABIEncoderV2;\npragma solidity >=0.4.25 <0.9.0;\n\nimport \"./Types.sol\";\nimport \"./Lots.sol\";\ncontract sms is Lots{\n\nfunction update_StockDate(string memory barcodeId_, uint256 newStockDate) internal LotExists(barcodeId_) {\n    Types.Lot storage lot_ = lot[barcodeId_];\n    Types.UserHistory memory newUserHistory = Types.UserHistory({\n        id_: msg.sender,\n        date: block.timestamp,\n        stockdate: newStockDate,\n        action: Types.Action.update  // Assuming a default action or replace with your logic\n    });\n\n    // Push the new UserHistory entry to the usershistory array\n    lotHistory[lot_.barcodeId].usershistory.push(newUserHistory);\n}\n}\n\n\n\n    \n",
+  "sourcePath": "/home/sim/supplychain/contracts/sms.sol",
+  "ast": {
+    "absolutePath": "/home/sim/supplychain/contracts/sms.sol",
+    "exportedSymbols": {
+      "sms": [
+        882
+      ]
+    },
+    "id": 883,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 832,
+        "literals": [
+          "experimental",
+          "ABIEncoderV2"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "36:33:6"
+      },
+      {
+        "id": 833,
+        "literals": [
+          "solidity",
+          ">=",
+          "0.4",
+          ".25",
+          "<",
+          "0.9",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "70:32:6"
+      },
+      {
+        "absolutePath": "/home/sim/supplychain/contracts/Types.sol",
+        "file": "./Types.sol",
+        "id": 834,
+        "nodeType": "ImportDirective",
+        "scope": 883,
+        "sourceUnit": 549,
+        "src": "104:21:6",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "/home/sim/supplychain/contracts/Lots.sol",
+        "file": "./Lots.sol",
+        "id": 835,
+        "nodeType": "ImportDirective",
+        "scope": 883,
+        "sourceUnit": 272,
+        "src": "126:20:6",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [
+          {
+            "arguments": null,
+            "baseName": {
+              "contractScope": null,
+              "id": 836,
+              "name": "Lots",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 271,
+              "src": "163:4:6",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_Lots_$271",
+                "typeString": "contract Lots"
+              }
+            },
+            "id": 837,
+            "nodeType": "InheritanceSpecifier",
+            "src": "163:4:6"
+          }
+        ],
+        "contractDependencies": [
+          271
+        ],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 882,
+        "linearizedBaseContracts": [
+          882,
+          271
+        ],
+        "name": "sms",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": {
+              "id": 880,
+              "nodeType": "Block",
+              "src": "275:436:6",
+              "statements": [
+                {
+                  "assignments": [
+                    850
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 850,
+                      "name": "lot_",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 880,
+                      "src": "281:22:6",
+                      "stateVariable": false,
+                      "storageLocation": "storage",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_Lot_$515_storage_ptr",
+                        "typeString": "struct Types.Lot"
+                      },
+                      "typeName": {
+                        "contractScope": null,
+                        "id": 849,
+                        "name": "Types.Lot",
+                        "nodeType": "UserDefinedTypeName",
+                        "referencedDeclaration": 515,
+                        "src": "281:9:6",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_Lot_$515_storage_ptr",
+                          "typeString": "struct Types.Lot"
+                        }
+                      },
+                      "value": null,
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 854,
+                  "initialValue": {
+                    "argumentTypes": null,
+                    "baseExpression": {
+                      "argumentTypes": null,
+                      "id": 851,
+                      "name": "lot",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 13,
+                      "src": "306:3:6",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_mapping$_t_string_memory_$_t_struct$_Lot_$515_storage_$",
+                        "typeString": "mapping(string memory => struct Types.Lot storage ref)"
+                      }
+                    },
+                    "id": 853,
+                    "indexExpression": {
+                      "argumentTypes": null,
+                      "id": 852,
+                      "name": "barcodeId_",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 839,
+                      "src": "310:10:6",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_string_memory_ptr",
+                        "typeString": "string memory"
+                      }
+                    },
+                    "isConstant": false,
+                    "isLValue": true,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "nodeType": "IndexAccess",
+                    "src": "306:15:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Lot_$515_storage",
+                      "typeString": "struct Types.Lot storage ref"
+                    }
+                  },
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "281:40:6"
+                },
+                {
+                  "assignments": [
+                    858
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 858,
+                      "name": "newUserHistory",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 880,
+                      "src": "327:39:6",
+                      "stateVariable": false,
+                      "storageLocation": "memory",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_UserHistory_$528_memory_ptr",
+                        "typeString": "struct Types.UserHistory"
+                      },
+                      "typeName": {
+                        "contractScope": null,
+                        "id": 857,
+                        "name": "Types.UserHistory",
+                        "nodeType": "UserDefinedTypeName",
+                        "referencedDeclaration": 528,
+                        "src": "327:17:6",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_UserHistory_$528_storage_ptr",
+                          "typeString": "struct Types.UserHistory"
+                        }
+                      },
+                      "value": null,
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 870,
+                  "initialValue": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 861,
+                          "name": "msg",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 897,
+                          "src": "402:3:6",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_magic_message",
+                            "typeString": "msg"
+                          }
+                        },
+                        "id": 862,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "sender",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": null,
+                        "src": "402:10:6",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address_payable",
+                          "typeString": "address payable"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 863,
+                          "name": "block",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 887,
+                          "src": "428:5:6",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_magic_block",
+                            "typeString": "block"
+                          }
+                        },
+                        "id": 864,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "timestamp",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": null,
+                        "src": "428:15:6",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "id": 865,
+                        "name": "newStockDate",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 841,
+                        "src": "464:12:6",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "expression": {
+                          "argumentTypes": null,
+                          "expression": {
+                            "argumentTypes": null,
+                            "id": 866,
+                            "name": "Types",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 548,
+                            "src": "494:5:6",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_type$_t_contract$_Types_$548_$",
+                              "typeString": "type(library Types)"
+                            }
+                          },
+                          "id": 867,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberName": "Action",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": 519,
+                          "src": "494:12:6",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_type$_t_enum$_Action_$519_$",
+                            "typeString": "type(enum Types.Action)"
+                          }
+                        },
+                        "id": 868,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "lValueRequested": false,
+                        "memberName": "update",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": null,
+                        "src": "494:19:6",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_enum$_Action_$519",
+                          "typeString": "enum Types.Action"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 859,
+                        "name": "Types",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 548,
+                        "src": "369:5:6",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_type$_t_contract$_Types_$548_$",
+                          "typeString": "type(library Types)"
+                        }
+                      },
+                      "id": 860,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "UserHistory",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 528,
+                      "src": "369:17:6",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_type$_t_struct$_UserHistory_$528_storage_ptr_$",
+                        "typeString": "type(struct Types.UserHistory storage pointer)"
+                      }
+                    },
+                    "id": 869,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "structConstructorCall",
+                    "lValueRequested": false,
+                    "names": [
+                      "id_",
+                      "date",
+                      "stockdate",
+                      "action"
+                    ],
+                    "nodeType": "FunctionCall",
+                    "src": "369:208:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_UserHistory_$528_memory",
+                      "typeString": "struct Types.UserHistory memory"
+                    }
+                  },
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "327:250:6"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 877,
+                        "name": "newUserHistory",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 858,
+                        "src": "693:14:6",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_UserHistory_$528_memory_ptr",
+                          "typeString": "struct Types.UserHistory memory"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_struct$_UserHistory_$528_memory_ptr",
+                          "typeString": "struct Types.UserHistory memory"
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": null,
+                        "expression": {
+                          "argumentTypes": null,
+                          "baseExpression": {
+                            "argumentTypes": null,
+                            "id": 871,
+                            "name": "lotHistory",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 22,
+                            "src": "648:10:6",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_mapping$_t_string_memory_$_t_struct$_LotHistory_$532_storage_$",
+                              "typeString": "mapping(string memory => struct Types.LotHistory storage ref)"
+                            }
+                          },
+                          "id": 874,
+                          "indexExpression": {
+                            "argumentTypes": null,
+                            "expression": {
+                              "argumentTypes": null,
+                              "id": 872,
+                              "name": "lot_",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 850,
+                              "src": "659:4:6",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_struct$_Lot_$515_storage_ptr",
+                                "typeString": "struct Types.Lot storage pointer"
+                              }
+                            },
+                            "id": 873,
+                            "isConstant": false,
+                            "isLValue": true,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "memberName": "barcodeId",
+                            "nodeType": "MemberAccess",
+                            "referencedDeclaration": 498,
+                            "src": "659:14:6",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_string_storage",
+                              "typeString": "string storage ref"
+                            }
+                          },
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "nodeType": "IndexAccess",
+                          "src": "648:26:6",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_LotHistory_$532_storage",
+                            "typeString": "struct Types.LotHistory storage ref"
+                          }
+                        },
+                        "id": 875,
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "usershistory",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": 531,
+                        "src": "648:39:6",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_array$_t_struct$_UserHistory_$528_storage_$dyn_storage",
+                          "typeString": "struct Types.UserHistory storage ref[] storage ref"
+                        }
+                      },
+                      "id": 876,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "push",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": null,
+                      "src": "648:44:6",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_arraypush_nonpayable$_t_struct$_UserHistory_$528_storage_$returns$_t_uint256_$",
+                        "typeString": "function (struct Types.UserHistory storage ref) returns (uint256)"
+                      }
+                    },
+                    "id": 878,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "648:60:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 879,
+                  "nodeType": "ExpressionStatement",
+                  "src": "648:60:6"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 881,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [
+              {
+                "arguments": [
+                  {
+                    "argumentTypes": null,
+                    "id": 844,
+                    "name": "barcodeId_",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 839,
+                    "src": "263:10:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_memory_ptr",
+                      "typeString": "string memory"
+                    }
+                  }
+                ],
+                "id": 845,
+                "modifierName": {
+                  "argumentTypes": null,
+                  "id": 843,
+                  "name": "LotExists",
+                  "nodeType": "Identifier",
+                  "overloadedDeclarations": [],
+                  "referencedDeclaration": 226,
+                  "src": "253:9:6",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_modifier$_t_string_memory_ptr_$",
+                    "typeString": "modifier (string memory)"
+                  }
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "253:21:6"
+              }
+            ],
+            "name": "update_StockDate",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 842,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 839,
+                  "name": "barcodeId_",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 881,
+                  "src": "196:24:6",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 838,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "196:6:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 841,
+                  "name": "newStockDate",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 881,
+                  "src": "222:20:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 840,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "222:7:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "195:48:6"
+            },
+            "returnParameters": {
+              "id": 846,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "275:0:6"
+            },
+            "scope": 882,
+            "src": "170:541:6",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "internal"
+          }
+        ],
+        "scope": 883,
+        "src": "147:566:6"
+      }
+    ],
+    "src": "36:686:6"
+  },
+  "legacyAST": {
+    "absolutePath": "/home/sim/supplychain/contracts/sms.sol",
+    "exportedSymbols": {
+      "sms": [
+        882
+      ]
+    },
+    "id": 883,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 832,
+        "literals": [
+          "experimental",
+          "ABIEncoderV2"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "36:33:6"
+      },
+      {
+        "id": 833,
+        "literals": [
+          "solidity",
+          ">=",
+          "0.4",
+          ".25",
+          "<",
+          "0.9",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "70:32:6"
+      },
+      {
+        "absolutePath": "/home/sim/supplychain/contracts/Types.sol",
+        "file": "./Types.sol",
+        "id": 834,
+        "nodeType": "ImportDirective",
+        "scope": 883,
+        "sourceUnit": 549,
+        "src": "104:21:6",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "/home/sim/supplychain/contracts/Lots.sol",
+        "file": "./Lots.sol",
+        "id": 835,
+        "nodeType": "ImportDirective",
+        "scope": 883,
+        "sourceUnit": 272,
+        "src": "126:20:6",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [
+          {
+            "arguments": null,
+            "baseName": {
+              "contractScope": null,
+              "id": 836,
+              "name": "Lots",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 271,
+              "src": "163:4:6",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_Lots_$271",
+                "typeString": "contract Lots"
+              }
+            },
+            "id": 837,
+            "nodeType": "InheritanceSpecifier",
+            "src": "163:4:6"
+          }
+        ],
+        "contractDependencies": [
+          271
+        ],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 882,
+        "linearizedBaseContracts": [
+          882,
+          271
+        ],
+        "name": "sms",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": {
+              "id": 880,
+              "nodeType": "Block",
+              "src": "275:436:6",
+              "statements": [
+                {
+                  "assignments": [
+                    850
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 850,
+                      "name": "lot_",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 880,
+                      "src": "281:22:6",
+                      "stateVariable": false,
+                      "storageLocation": "storage",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_Lot_$515_storage_ptr",
+                        "typeString": "struct Types.Lot"
+                      },
+                      "typeName": {
+                        "contractScope": null,
+                        "id": 849,
+                        "name": "Types.Lot",
+                        "nodeType": "UserDefinedTypeName",
+                        "referencedDeclaration": 515,
+                        "src": "281:9:6",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_Lot_$515_storage_ptr",
+                          "typeString": "struct Types.Lot"
+                        }
+                      },
+                      "value": null,
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 854,
+                  "initialValue": {
+                    "argumentTypes": null,
+                    "baseExpression": {
+                      "argumentTypes": null,
+                      "id": 851,
+                      "name": "lot",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 13,
+                      "src": "306:3:6",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_mapping$_t_string_memory_$_t_struct$_Lot_$515_storage_$",
+                        "typeString": "mapping(string memory => struct Types.Lot storage ref)"
+                      }
+                    },
+                    "id": 853,
+                    "indexExpression": {
+                      "argumentTypes": null,
+                      "id": 852,
+                      "name": "barcodeId_",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 839,
+                      "src": "310:10:6",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_string_memory_ptr",
+                        "typeString": "string memory"
+                      }
+                    },
+                    "isConstant": false,
+                    "isLValue": true,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "nodeType": "IndexAccess",
+                    "src": "306:15:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Lot_$515_storage",
+                      "typeString": "struct Types.Lot storage ref"
+                    }
+                  },
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "281:40:6"
+                },
+                {
+                  "assignments": [
+                    858
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 858,
+                      "name": "newUserHistory",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 880,
+                      "src": "327:39:6",
+                      "stateVariable": false,
+                      "storageLocation": "memory",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_UserHistory_$528_memory_ptr",
+                        "typeString": "struct Types.UserHistory"
+                      },
+                      "typeName": {
+                        "contractScope": null,
+                        "id": 857,
+                        "name": "Types.UserHistory",
+                        "nodeType": "UserDefinedTypeName",
+                        "referencedDeclaration": 528,
+                        "src": "327:17:6",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_UserHistory_$528_storage_ptr",
+                          "typeString": "struct Types.UserHistory"
+                        }
+                      },
+                      "value": null,
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 870,
+                  "initialValue": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 861,
+                          "name": "msg",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 897,
+                          "src": "402:3:6",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_magic_message",
+                            "typeString": "msg"
+                          }
+                        },
+                        "id": 862,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "sender",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": null,
+                        "src": "402:10:6",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address_payable",
+                          "typeString": "address payable"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 863,
+                          "name": "block",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 887,
+                          "src": "428:5:6",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_magic_block",
+                            "typeString": "block"
+                          }
+                        },
+                        "id": 864,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "timestamp",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": null,
+                        "src": "428:15:6",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "id": 865,
+                        "name": "newStockDate",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 841,
+                        "src": "464:12:6",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "expression": {
+                          "argumentTypes": null,
+                          "expression": {
+                            "argumentTypes": null,
+                            "id": 866,
+                            "name": "Types",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 548,
+                            "src": "494:5:6",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_type$_t_contract$_Types_$548_$",
+                              "typeString": "type(library Types)"
+                            }
+                          },
+                          "id": 867,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberName": "Action",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": 519,
+                          "src": "494:12:6",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_type$_t_enum$_Action_$519_$",
+                            "typeString": "type(enum Types.Action)"
+                          }
+                        },
+                        "id": 868,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "lValueRequested": false,
+                        "memberName": "update",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": null,
+                        "src": "494:19:6",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_enum$_Action_$519",
+                          "typeString": "enum Types.Action"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 859,
+                        "name": "Types",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 548,
+                        "src": "369:5:6",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_type$_t_contract$_Types_$548_$",
+                          "typeString": "type(library Types)"
+                        }
+                      },
+                      "id": 860,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "UserHistory",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 528,
+                      "src": "369:17:6",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_type$_t_struct$_UserHistory_$528_storage_ptr_$",
+                        "typeString": "type(struct Types.UserHistory storage pointer)"
+                      }
+                    },
+                    "id": 869,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "structConstructorCall",
+                    "lValueRequested": false,
+                    "names": [
+                      "id_",
+                      "date",
+                      "stockdate",
+                      "action"
+                    ],
+                    "nodeType": "FunctionCall",
+                    "src": "369:208:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_UserHistory_$528_memory",
+                      "typeString": "struct Types.UserHistory memory"
+                    }
+                  },
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "327:250:6"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 877,
+                        "name": "newUserHistory",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 858,
+                        "src": "693:14:6",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_UserHistory_$528_memory_ptr",
+                          "typeString": "struct Types.UserHistory memory"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_struct$_UserHistory_$528_memory_ptr",
+                          "typeString": "struct Types.UserHistory memory"
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": null,
+                        "expression": {
+                          "argumentTypes": null,
+                          "baseExpression": {
+                            "argumentTypes": null,
+                            "id": 871,
+                            "name": "lotHistory",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 22,
+                            "src": "648:10:6",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_mapping$_t_string_memory_$_t_struct$_LotHistory_$532_storage_$",
+                              "typeString": "mapping(string memory => struct Types.LotHistory storage ref)"
+                            }
+                          },
+                          "id": 874,
+                          "indexExpression": {
+                            "argumentTypes": null,
+                            "expression": {
+                              "argumentTypes": null,
+                              "id": 872,
+                              "name": "lot_",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 850,
+                              "src": "659:4:6",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_struct$_Lot_$515_storage_ptr",
+                                "typeString": "struct Types.Lot storage pointer"
+                              }
+                            },
+                            "id": 873,
+                            "isConstant": false,
+                            "isLValue": true,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "memberName": "barcodeId",
+                            "nodeType": "MemberAccess",
+                            "referencedDeclaration": 498,
+                            "src": "659:14:6",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_string_storage",
+                              "typeString": "string storage ref"
+                            }
+                          },
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "nodeType": "IndexAccess",
+                          "src": "648:26:6",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_LotHistory_$532_storage",
+                            "typeString": "struct Types.LotHistory storage ref"
+                          }
+                        },
+                        "id": 875,
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "usershistory",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": 531,
+                        "src": "648:39:6",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_array$_t_struct$_UserHistory_$528_storage_$dyn_storage",
+                          "typeString": "struct Types.UserHistory storage ref[] storage ref"
+                        }
+                      },
+                      "id": 876,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "push",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": null,
+                      "src": "648:44:6",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_arraypush_nonpayable$_t_struct$_UserHistory_$528_storage_$returns$_t_uint256_$",
+                        "typeString": "function (struct Types.UserHistory storage ref) returns (uint256)"
+                      }
+                    },
+                    "id": 878,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "648:60:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 879,
+                  "nodeType": "ExpressionStatement",
+                  "src": "648:60:6"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 881,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [
+              {
+                "arguments": [
+                  {
+                    "argumentTypes": null,
+                    "id": 844,
+                    "name": "barcodeId_",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 839,
+                    "src": "263:10:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_memory_ptr",
+                      "typeString": "string memory"
+                    }
+                  }
+                ],
+                "id": 845,
+                "modifierName": {
+                  "argumentTypes": null,
+                  "id": 843,
+                  "name": "LotExists",
+                  "nodeType": "Identifier",
+                  "overloadedDeclarations": [],
+                  "referencedDeclaration": 226,
+                  "src": "253:9:6",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_modifier$_t_string_memory_ptr_$",
+                    "typeString": "modifier (string memory)"
+                  }
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "253:21:6"
+              }
+            ],
+            "name": "update_StockDate",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 842,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 839,
+                  "name": "barcodeId_",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 881,
+                  "src": "196:24:6",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 838,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "196:6:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 841,
+                  "name": "newStockDate",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 881,
+                  "src": "222:20:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 840,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "222:7:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "195:48:6"
+            },
+            "returnParameters": {
+              "id": 846,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "275:0:6"
+            },
+            "scope": 882,
+            "src": "170:541:6",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "internal"
+          }
+        ],
+        "scope": 883,
+        "src": "147:566:6"
+      }
+    ],
+    "src": "36:686:6"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.5.0+commit.1d4f565a.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.0.1",
+  "updatedAt": "2023-12-17T00:35:40.707Z",
+  "devdoc": {
+    "methods": {}
+  },
+  "userdoc": {
+    "methods": {}
+  }
+}

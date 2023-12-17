@@ -1,0 +1,1771 @@
+{
+  "contractName": "Types",
+  "abi": [],
+  "bytecode": "0x605a602c600b82828239805160001a60731460008114601c57601e565bfe5b5030600052607381538281f3fe73000000000000000000000000000000000000000030146080604052600080fdfea265627a7a723058201c7ccc9045da80776ffbaefa1a75d5b67e4efd62a807d55b1014fe794824eb726c6578706572696d656e74616cf50037",
+  "deployedBytecode": "0x73000000000000000000000000000000000000000030146080604052600080fdfea265627a7a723058201c7ccc9045da80776ffbaefa1a75d5b67e4efd62a807d55b1014fe794824eb726c6578706572696d656e74616cf50037",
+  "sourceMap": "104:1125:3:-;;132:2:-1;166:7;155:9;146:7;137:37;252:7;246:14;243:1;238:23;232:4;229:33;270:1;265:20;;;;222:63;;265:20;274:9;222:63;;298:9;295:1;288:20;328:4;319:7;311:22;352:7;343;336:24",
+  "deployedSourceMap": "104:1125:3:-;;;;;;;;",
+  "source": "// SPDX-License-Identifier: GPL-3.0\npragma experimental ABIEncoderV2;\npragma solidity >=0.4.25 <0.9.0;\n\nlibrary Types {\n    enum UserRole {\n        producer, \n        device,\n        database, \n        consumer, \n        buyer // può anche vendere \n        // questi sono gli utenti della blockchain\n    }\n\n    struct UserDetails {\n        UserRole role;\n        address id_;\n        string name;\n        string email;\n        bool isValue;\n    }\n\n    struct Lot {\n        uint256 id_lot;\n        string barcodeId;\n        address lot_user_addr;\n        string source;\n        string variety;\n        string quality; \n        uint256 temprature; \n        uint256 humidity; \n        uint256 date; \n        uint256 stockdate;\n    }\n\nenum Action{\n    added,\n    transaction,\n    update\n}\n\n    struct UserHistory {\n        address id_; \n        uint256 date; \n        uint256 stockdate;\n        Action action;\n    }\n\n\n    struct LotHistory {\n        UserHistory[] usershistory;\n\n    }\n    enum TransactionType {\n        ecommerce, \n        auction,\n        sale\n    }\n    struct Transaction {\n        address buyer;\n        address receiver;\n        string currentdate;\n        uint256 price;\n        TransactionType type_;\n    }\n\n}\n",
+  "sourcePath": "/home/sim/supplychain/contracts/Types.sol",
+  "ast": {
+    "absolutePath": "/home/sim/supplychain/contracts/Types.sol",
+    "exportedSymbols": {
+      "Types": [
+        548
+      ]
+    },
+    "id": 549,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 476,
+        "literals": [
+          "experimental",
+          "ABIEncoderV2"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "36:33:3"
+      },
+      {
+        "id": 477,
+        "literals": [
+          "solidity",
+          ">=",
+          "0.4",
+          ".25",
+          "<",
+          "0.9",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "70:32:3"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "library",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 548,
+        "linearizedBaseContracts": [
+          548
+        ],
+        "name": "Types",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "canonicalName": "Types.UserRole",
+            "id": 483,
+            "members": [
+              {
+                "id": 478,
+                "name": "producer",
+                "nodeType": "EnumValue",
+                "src": "148:8:3"
+              },
+              {
+                "id": 479,
+                "name": "device",
+                "nodeType": "EnumValue",
+                "src": "167:6:3"
+              },
+              {
+                "id": 480,
+                "name": "database",
+                "nodeType": "EnumValue",
+                "src": "183:8:3"
+              },
+              {
+                "id": 481,
+                "name": "consumer",
+                "nodeType": "EnumValue",
+                "src": "202:8:3"
+              },
+              {
+                "id": 482,
+                "name": "buyer",
+                "nodeType": "EnumValue",
+                "src": "221:5:3"
+              }
+            ],
+            "name": "UserRole",
+            "nodeType": "EnumDefinition",
+            "src": "124:182:3"
+          },
+          {
+            "canonicalName": "Types.UserDetails",
+            "id": 494,
+            "members": [
+              {
+                "constant": false,
+                "id": 485,
+                "name": "role",
+                "nodeType": "VariableDeclaration",
+                "scope": 494,
+                "src": "341:13:3",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_enum$_UserRole_$483",
+                  "typeString": "enum Types.UserRole"
+                },
+                "typeName": {
+                  "contractScope": null,
+                  "id": 484,
+                  "name": "UserRole",
+                  "nodeType": "UserDefinedTypeName",
+                  "referencedDeclaration": 483,
+                  "src": "341:8:3",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_enum$_UserRole_$483",
+                    "typeString": "enum Types.UserRole"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 487,
+                "name": "id_",
+                "nodeType": "VariableDeclaration",
+                "scope": 494,
+                "src": "364:11:3",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 486,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "364:7:3",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 489,
+                "name": "name",
+                "nodeType": "VariableDeclaration",
+                "scope": 494,
+                "src": "385:11:3",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 488,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "385:6:3",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 491,
+                "name": "email",
+                "nodeType": "VariableDeclaration",
+                "scope": 494,
+                "src": "406:12:3",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 490,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "406:6:3",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 493,
+                "name": "isValue",
+                "nodeType": "VariableDeclaration",
+                "scope": 494,
+                "src": "428:12:3",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bool",
+                  "typeString": "bool"
+                },
+                "typeName": {
+                  "id": 492,
+                  "name": "bool",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "428:4:3",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "UserDetails",
+            "nodeType": "StructDefinition",
+            "scope": 548,
+            "src": "312:135:3",
+            "visibility": "public"
+          },
+          {
+            "canonicalName": "Types.Lot",
+            "id": 515,
+            "members": [
+              {
+                "constant": false,
+                "id": 496,
+                "name": "id_lot",
+                "nodeType": "VariableDeclaration",
+                "scope": 515,
+                "src": "474:14:3",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 495,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "474:7:3",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 498,
+                "name": "barcodeId",
+                "nodeType": "VariableDeclaration",
+                "scope": 515,
+                "src": "498:16:3",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 497,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "498:6:3",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 500,
+                "name": "lot_user_addr",
+                "nodeType": "VariableDeclaration",
+                "scope": 515,
+                "src": "524:21:3",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 499,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "524:7:3",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 502,
+                "name": "source",
+                "nodeType": "VariableDeclaration",
+                "scope": 515,
+                "src": "555:13:3",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 501,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "555:6:3",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 504,
+                "name": "variety",
+                "nodeType": "VariableDeclaration",
+                "scope": 515,
+                "src": "578:14:3",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 503,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "578:6:3",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 506,
+                "name": "quality",
+                "nodeType": "VariableDeclaration",
+                "scope": 515,
+                "src": "602:14:3",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 505,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "602:6:3",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 508,
+                "name": "temprature",
+                "nodeType": "VariableDeclaration",
+                "scope": 515,
+                "src": "627:18:3",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 507,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "627:7:3",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 510,
+                "name": "humidity",
+                "nodeType": "VariableDeclaration",
+                "scope": 515,
+                "src": "656:16:3",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 509,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "656:7:3",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 512,
+                "name": "date",
+                "nodeType": "VariableDeclaration",
+                "scope": 515,
+                "src": "683:12:3",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 511,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "683:7:3",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 514,
+                "name": "stockdate",
+                "nodeType": "VariableDeclaration",
+                "scope": 515,
+                "src": "706:17:3",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 513,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "706:7:3",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "Lot",
+            "nodeType": "StructDefinition",
+            "scope": 548,
+            "src": "453:277:3",
+            "visibility": "public"
+          },
+          {
+            "canonicalName": "Types.Action",
+            "id": 519,
+            "members": [
+              {
+                "id": 516,
+                "name": "added",
+                "nodeType": "EnumValue",
+                "src": "749:5:3"
+              },
+              {
+                "id": 517,
+                "name": "transaction",
+                "nodeType": "EnumValue",
+                "src": "760:11:3"
+              },
+              {
+                "id": 518,
+                "name": "update",
+                "nodeType": "EnumValue",
+                "src": "777:6:3"
+              }
+            ],
+            "name": "Action",
+            "nodeType": "EnumDefinition",
+            "src": "732:53:3"
+          },
+          {
+            "canonicalName": "Types.UserHistory",
+            "id": 528,
+            "members": [
+              {
+                "constant": false,
+                "id": 521,
+                "name": "id_",
+                "nodeType": "VariableDeclaration",
+                "scope": 528,
+                "src": "820:11:3",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 520,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "820:7:3",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 523,
+                "name": "date",
+                "nodeType": "VariableDeclaration",
+                "scope": 528,
+                "src": "842:12:3",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 522,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "842:7:3",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 525,
+                "name": "stockdate",
+                "nodeType": "VariableDeclaration",
+                "scope": 528,
+                "src": "865:17:3",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 524,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "865:7:3",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 527,
+                "name": "action",
+                "nodeType": "VariableDeclaration",
+                "scope": 528,
+                "src": "892:13:3",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_enum$_Action_$519",
+                  "typeString": "enum Types.Action"
+                },
+                "typeName": {
+                  "contractScope": null,
+                  "id": 526,
+                  "name": "Action",
+                  "nodeType": "UserDefinedTypeName",
+                  "referencedDeclaration": 519,
+                  "src": "892:6:3",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_enum$_Action_$519",
+                    "typeString": "enum Types.Action"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "UserHistory",
+            "nodeType": "StructDefinition",
+            "scope": 548,
+            "src": "791:121:3",
+            "visibility": "public"
+          },
+          {
+            "canonicalName": "Types.LotHistory",
+            "id": 532,
+            "members": [
+              {
+                "constant": false,
+                "id": 531,
+                "name": "usershistory",
+                "nodeType": "VariableDeclaration",
+                "scope": 532,
+                "src": "947:26:3",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_array$_t_struct$_UserHistory_$528_storage_$dyn_storage_ptr",
+                  "typeString": "struct Types.UserHistory[]"
+                },
+                "typeName": {
+                  "baseType": {
+                    "contractScope": null,
+                    "id": 529,
+                    "name": "UserHistory",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 528,
+                    "src": "947:11:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_UserHistory_$528_storage_ptr",
+                      "typeString": "struct Types.UserHistory"
+                    }
+                  },
+                  "id": 530,
+                  "length": null,
+                  "nodeType": "ArrayTypeName",
+                  "src": "947:13:3",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_struct$_UserHistory_$528_storage_$dyn_storage_ptr",
+                    "typeString": "struct Types.UserHistory[]"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "LotHistory",
+            "nodeType": "StructDefinition",
+            "scope": 548,
+            "src": "919:62:3",
+            "visibility": "public"
+          },
+          {
+            "canonicalName": "Types.TransactionType",
+            "id": 536,
+            "members": [
+              {
+                "id": 533,
+                "name": "ecommerce",
+                "nodeType": "EnumValue",
+                "src": "1017:9:3"
+              },
+              {
+                "id": 534,
+                "name": "auction",
+                "nodeType": "EnumValue",
+                "src": "1037:7:3"
+              },
+              {
+                "id": 535,
+                "name": "sale",
+                "nodeType": "EnumValue",
+                "src": "1054:4:3"
+              }
+            ],
+            "name": "TransactionType",
+            "nodeType": "EnumDefinition",
+            "src": "986:78:3"
+          },
+          {
+            "canonicalName": "Types.Transaction",
+            "id": 547,
+            "members": [
+              {
+                "constant": false,
+                "id": 538,
+                "name": "buyer",
+                "nodeType": "VariableDeclaration",
+                "scope": 547,
+                "src": "1098:13:3",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 537,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "1098:7:3",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 540,
+                "name": "receiver",
+                "nodeType": "VariableDeclaration",
+                "scope": 547,
+                "src": "1121:16:3",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 539,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "1121:7:3",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 542,
+                "name": "currentdate",
+                "nodeType": "VariableDeclaration",
+                "scope": 547,
+                "src": "1147:18:3",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 541,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "1147:6:3",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 544,
+                "name": "price",
+                "nodeType": "VariableDeclaration",
+                "scope": 547,
+                "src": "1175:13:3",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 543,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "1175:7:3",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 546,
+                "name": "type_",
+                "nodeType": "VariableDeclaration",
+                "scope": 547,
+                "src": "1198:21:3",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_enum$_TransactionType_$536",
+                  "typeString": "enum Types.TransactionType"
+                },
+                "typeName": {
+                  "contractScope": null,
+                  "id": 545,
+                  "name": "TransactionType",
+                  "nodeType": "UserDefinedTypeName",
+                  "referencedDeclaration": 536,
+                  "src": "1198:15:3",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_enum$_TransactionType_$536",
+                    "typeString": "enum Types.TransactionType"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "Transaction",
+            "nodeType": "StructDefinition",
+            "scope": 548,
+            "src": "1069:157:3",
+            "visibility": "public"
+          }
+        ],
+        "scope": 549,
+        "src": "104:1125:3"
+      }
+    ],
+    "src": "36:1194:3"
+  },
+  "legacyAST": {
+    "absolutePath": "/home/sim/supplychain/contracts/Types.sol",
+    "exportedSymbols": {
+      "Types": [
+        548
+      ]
+    },
+    "id": 549,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 476,
+        "literals": [
+          "experimental",
+          "ABIEncoderV2"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "36:33:3"
+      },
+      {
+        "id": 477,
+        "literals": [
+          "solidity",
+          ">=",
+          "0.4",
+          ".25",
+          "<",
+          "0.9",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "70:32:3"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "library",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 548,
+        "linearizedBaseContracts": [
+          548
+        ],
+        "name": "Types",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "canonicalName": "Types.UserRole",
+            "id": 483,
+            "members": [
+              {
+                "id": 478,
+                "name": "producer",
+                "nodeType": "EnumValue",
+                "src": "148:8:3"
+              },
+              {
+                "id": 479,
+                "name": "device",
+                "nodeType": "EnumValue",
+                "src": "167:6:3"
+              },
+              {
+                "id": 480,
+                "name": "database",
+                "nodeType": "EnumValue",
+                "src": "183:8:3"
+              },
+              {
+                "id": 481,
+                "name": "consumer",
+                "nodeType": "EnumValue",
+                "src": "202:8:3"
+              },
+              {
+                "id": 482,
+                "name": "buyer",
+                "nodeType": "EnumValue",
+                "src": "221:5:3"
+              }
+            ],
+            "name": "UserRole",
+            "nodeType": "EnumDefinition",
+            "src": "124:182:3"
+          },
+          {
+            "canonicalName": "Types.UserDetails",
+            "id": 494,
+            "members": [
+              {
+                "constant": false,
+                "id": 485,
+                "name": "role",
+                "nodeType": "VariableDeclaration",
+                "scope": 494,
+                "src": "341:13:3",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_enum$_UserRole_$483",
+                  "typeString": "enum Types.UserRole"
+                },
+                "typeName": {
+                  "contractScope": null,
+                  "id": 484,
+                  "name": "UserRole",
+                  "nodeType": "UserDefinedTypeName",
+                  "referencedDeclaration": 483,
+                  "src": "341:8:3",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_enum$_UserRole_$483",
+                    "typeString": "enum Types.UserRole"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 487,
+                "name": "id_",
+                "nodeType": "VariableDeclaration",
+                "scope": 494,
+                "src": "364:11:3",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 486,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "364:7:3",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 489,
+                "name": "name",
+                "nodeType": "VariableDeclaration",
+                "scope": 494,
+                "src": "385:11:3",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 488,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "385:6:3",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 491,
+                "name": "email",
+                "nodeType": "VariableDeclaration",
+                "scope": 494,
+                "src": "406:12:3",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 490,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "406:6:3",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 493,
+                "name": "isValue",
+                "nodeType": "VariableDeclaration",
+                "scope": 494,
+                "src": "428:12:3",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bool",
+                  "typeString": "bool"
+                },
+                "typeName": {
+                  "id": 492,
+                  "name": "bool",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "428:4:3",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "UserDetails",
+            "nodeType": "StructDefinition",
+            "scope": 548,
+            "src": "312:135:3",
+            "visibility": "public"
+          },
+          {
+            "canonicalName": "Types.Lot",
+            "id": 515,
+            "members": [
+              {
+                "constant": false,
+                "id": 496,
+                "name": "id_lot",
+                "nodeType": "VariableDeclaration",
+                "scope": 515,
+                "src": "474:14:3",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 495,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "474:7:3",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 498,
+                "name": "barcodeId",
+                "nodeType": "VariableDeclaration",
+                "scope": 515,
+                "src": "498:16:3",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 497,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "498:6:3",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 500,
+                "name": "lot_user_addr",
+                "nodeType": "VariableDeclaration",
+                "scope": 515,
+                "src": "524:21:3",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 499,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "524:7:3",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 502,
+                "name": "source",
+                "nodeType": "VariableDeclaration",
+                "scope": 515,
+                "src": "555:13:3",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 501,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "555:6:3",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 504,
+                "name": "variety",
+                "nodeType": "VariableDeclaration",
+                "scope": 515,
+                "src": "578:14:3",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 503,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "578:6:3",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 506,
+                "name": "quality",
+                "nodeType": "VariableDeclaration",
+                "scope": 515,
+                "src": "602:14:3",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 505,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "602:6:3",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 508,
+                "name": "temprature",
+                "nodeType": "VariableDeclaration",
+                "scope": 515,
+                "src": "627:18:3",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 507,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "627:7:3",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 510,
+                "name": "humidity",
+                "nodeType": "VariableDeclaration",
+                "scope": 515,
+                "src": "656:16:3",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 509,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "656:7:3",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 512,
+                "name": "date",
+                "nodeType": "VariableDeclaration",
+                "scope": 515,
+                "src": "683:12:3",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 511,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "683:7:3",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 514,
+                "name": "stockdate",
+                "nodeType": "VariableDeclaration",
+                "scope": 515,
+                "src": "706:17:3",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 513,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "706:7:3",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "Lot",
+            "nodeType": "StructDefinition",
+            "scope": 548,
+            "src": "453:277:3",
+            "visibility": "public"
+          },
+          {
+            "canonicalName": "Types.Action",
+            "id": 519,
+            "members": [
+              {
+                "id": 516,
+                "name": "added",
+                "nodeType": "EnumValue",
+                "src": "749:5:3"
+              },
+              {
+                "id": 517,
+                "name": "transaction",
+                "nodeType": "EnumValue",
+                "src": "760:11:3"
+              },
+              {
+                "id": 518,
+                "name": "update",
+                "nodeType": "EnumValue",
+                "src": "777:6:3"
+              }
+            ],
+            "name": "Action",
+            "nodeType": "EnumDefinition",
+            "src": "732:53:3"
+          },
+          {
+            "canonicalName": "Types.UserHistory",
+            "id": 528,
+            "members": [
+              {
+                "constant": false,
+                "id": 521,
+                "name": "id_",
+                "nodeType": "VariableDeclaration",
+                "scope": 528,
+                "src": "820:11:3",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 520,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "820:7:3",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 523,
+                "name": "date",
+                "nodeType": "VariableDeclaration",
+                "scope": 528,
+                "src": "842:12:3",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 522,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "842:7:3",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 525,
+                "name": "stockdate",
+                "nodeType": "VariableDeclaration",
+                "scope": 528,
+                "src": "865:17:3",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 524,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "865:7:3",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 527,
+                "name": "action",
+                "nodeType": "VariableDeclaration",
+                "scope": 528,
+                "src": "892:13:3",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_enum$_Action_$519",
+                  "typeString": "enum Types.Action"
+                },
+                "typeName": {
+                  "contractScope": null,
+                  "id": 526,
+                  "name": "Action",
+                  "nodeType": "UserDefinedTypeName",
+                  "referencedDeclaration": 519,
+                  "src": "892:6:3",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_enum$_Action_$519",
+                    "typeString": "enum Types.Action"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "UserHistory",
+            "nodeType": "StructDefinition",
+            "scope": 548,
+            "src": "791:121:3",
+            "visibility": "public"
+          },
+          {
+            "canonicalName": "Types.LotHistory",
+            "id": 532,
+            "members": [
+              {
+                "constant": false,
+                "id": 531,
+                "name": "usershistory",
+                "nodeType": "VariableDeclaration",
+                "scope": 532,
+                "src": "947:26:3",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_array$_t_struct$_UserHistory_$528_storage_$dyn_storage_ptr",
+                  "typeString": "struct Types.UserHistory[]"
+                },
+                "typeName": {
+                  "baseType": {
+                    "contractScope": null,
+                    "id": 529,
+                    "name": "UserHistory",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 528,
+                    "src": "947:11:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_UserHistory_$528_storage_ptr",
+                      "typeString": "struct Types.UserHistory"
+                    }
+                  },
+                  "id": 530,
+                  "length": null,
+                  "nodeType": "ArrayTypeName",
+                  "src": "947:13:3",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_struct$_UserHistory_$528_storage_$dyn_storage_ptr",
+                    "typeString": "struct Types.UserHistory[]"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "LotHistory",
+            "nodeType": "StructDefinition",
+            "scope": 548,
+            "src": "919:62:3",
+            "visibility": "public"
+          },
+          {
+            "canonicalName": "Types.TransactionType",
+            "id": 536,
+            "members": [
+              {
+                "id": 533,
+                "name": "ecommerce",
+                "nodeType": "EnumValue",
+                "src": "1017:9:3"
+              },
+              {
+                "id": 534,
+                "name": "auction",
+                "nodeType": "EnumValue",
+                "src": "1037:7:3"
+              },
+              {
+                "id": 535,
+                "name": "sale",
+                "nodeType": "EnumValue",
+                "src": "1054:4:3"
+              }
+            ],
+            "name": "TransactionType",
+            "nodeType": "EnumDefinition",
+            "src": "986:78:3"
+          },
+          {
+            "canonicalName": "Types.Transaction",
+            "id": 547,
+            "members": [
+              {
+                "constant": false,
+                "id": 538,
+                "name": "buyer",
+                "nodeType": "VariableDeclaration",
+                "scope": 547,
+                "src": "1098:13:3",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 537,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "1098:7:3",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 540,
+                "name": "receiver",
+                "nodeType": "VariableDeclaration",
+                "scope": 547,
+                "src": "1121:16:3",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 539,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "1121:7:3",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 542,
+                "name": "currentdate",
+                "nodeType": "VariableDeclaration",
+                "scope": 547,
+                "src": "1147:18:3",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 541,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "1147:6:3",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 544,
+                "name": "price",
+                "nodeType": "VariableDeclaration",
+                "scope": 547,
+                "src": "1175:13:3",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 543,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "1175:7:3",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 546,
+                "name": "type_",
+                "nodeType": "VariableDeclaration",
+                "scope": 547,
+                "src": "1198:21:3",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_enum$_TransactionType_$536",
+                  "typeString": "enum Types.TransactionType"
+                },
+                "typeName": {
+                  "contractScope": null,
+                  "id": 545,
+                  "name": "TransactionType",
+                  "nodeType": "UserDefinedTypeName",
+                  "referencedDeclaration": 536,
+                  "src": "1198:15:3",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_enum$_TransactionType_$536",
+                    "typeString": "enum Types.TransactionType"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "Transaction",
+            "nodeType": "StructDefinition",
+            "scope": 548,
+            "src": "1069:157:3",
+            "visibility": "public"
+          }
+        ],
+        "scope": 549,
+        "src": "104:1125:3"
+      }
+    ],
+    "src": "36:1194:3"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.5.0+commit.1d4f565a.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.0.1",
+  "updatedAt": "2023-12-17T00:35:40.705Z",
+  "devdoc": {
+    "methods": {}
+  },
+  "userdoc": {
+    "methods": {}
+  }
+}
