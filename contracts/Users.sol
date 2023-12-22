@@ -10,16 +10,24 @@ contract Users {
 
         
     constructor() public {
-        Types.UserDetails memory specificUser = Types.UserDetails({
+        Types.UserDetails memory producer = Types.UserDetails({
             role: Types.UserRole.device,
             id_: 0x404BEc9172f4c55790e9f2D9dBbdBc5feb4d215C,
             name: "IoT",
             email: "IoT@example.com",
             isValue: true
         });
+        Types.UserDetails memory database = Types.UserDetails({
+            role: Types.UserRole.database,
+            id_: 0xf0FE51d2F0A1B450bA6F4c03603b78a932FE771f,
+            name: "DB",
+            email: "DB@example.com",
+            isValue: true
+        });
 
 
-        users[specificUser.id_] = specificUser;
+        users[producer.id_] = producer;
+        users[database.id_] = database;
     }
 
     event NewUser(string name, string email, Types.UserRole role);

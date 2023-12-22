@@ -1,7 +1,7 @@
 const { Web3 } = require('web3');
 const web3 = new Web3('HTTP://127.0.0.1:7545');
 const contractABI = require('./build/contracts/SupplyChain.json').abi;
-const contractAddress = '0x9db14Ec363388420B2485809ECEA3612Bbb7c1fC';
+const contractAddress = '0x5577574b51B33818e3Bf8248Af10d7F74f862C00';
 
 class Lot {
     constructor(id_lot, barcodeId, lot_user_addr, source, variety, quality, temprature, humidity, date, stockdate) {
@@ -48,6 +48,6 @@ async function interactWithContract(jsonData) {
     }
 }
 
-const jsonData = '{"id_lot": 1, "barcodeId": "23", "lot_user_addr": "0x404BEc9172f4c55790e9f2D9dBbdBc5feb4d215C", "source": "Supplier", "variety": "TypeA", "quality": "High", "temprature": 25, "humidity": 50,"date": 10, "stockdate": 0}';
+const jsonData = '{"id_lot": 1, "barcodeId": "0094", "lot_user_addr": "0x404BEc9172f4c55790e9f2D9dBbdBc5feb4d215C", "source": "Supplier", "variety": "TypeA", "quality": "High", "temprature": 25, "humidity": 50,"date": 10, "stockdate": 0}';
 
 interactWithContract(jsonData);

@@ -59,7 +59,7 @@ enum Action{
     struct Transaction {
         address buyer;
         address receiver;
-        string currentdate;
+        string transferdate;
         uint256 price;
         TransactionType type_;
     }

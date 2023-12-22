@@ -1,11 +1,11 @@
 {
   "contractName": "Types",
   "abi": [],
-  "bytecode": "0x605a602c600b82828239805160001a60731460008114601c57601e565bfe5b5030600052607381538281f3fe73000000000000000000000000000000000000000030146080604052600080fdfea265627a7a723058201c7ccc9045da80776ffbaefa1a75d5b67e4efd62a807d55b1014fe794824eb726c6578706572696d656e74616cf50037",
-  "deployedBytecode": "0x73000000000000000000000000000000000000000030146080604052600080fdfea265627a7a723058201c7ccc9045da80776ffbaefa1a75d5b67e4efd62a807d55b1014fe794824eb726c6578706572696d656e74616cf50037",
-  "sourceMap": "104:1125:3:-;;132:2:-1;166:7;155:9;146:7;137:37;252:7;246:14;243:1;238:23;232:4;229:33;270:1;265:20;;;;222:63;;265:20;274:9;222:63;;298:9;295:1;288:20;328:4;319:7;311:22;352:7;343;336:24",
-  "deployedSourceMap": "104:1125:3:-;;;;;;;;",
-  "source": "// SPDX-License-Identifier: GPL-3.0\npragma experimental ABIEncoderV2;\npragma solidity >=0.4.25 <0.9.0;\n\nlibrary Types {\n    enum UserRole {\n        producer, \n        device,\n        database, \n        consumer, \n        buyer // può anche vendere \n        // questi sono gli utenti della blockchain\n    }\n\n    struct UserDetails {\n        UserRole role;\n        address id_;\n        string name;\n        string email;\n        bool isValue;\n    }\n\n    struct Lot {\n        uint256 id_lot;\n        string barcodeId;\n        address lot_user_addr;\n        string source;\n        string variety;\n        string quality; \n        uint256 temprature; \n        uint256 humidity; \n        uint256 date; \n        uint256 stockdate;\n    }\n\nenum Action{\n    added,\n    transaction,\n    update\n}\n\n    struct UserHistory {\n        address id_; \n        uint256 date; \n        uint256 stockdate;\n        Action action;\n    }\n\n\n    struct LotHistory {\n        UserHistory[] usershistory;\n\n    }\n    enum TransactionType {\n        ecommerce, \n        auction,\n        sale\n    }\n    struct Transaction {\n        address buyer;\n        address receiver;\n        string currentdate;\n        uint256 price;\n        TransactionType type_;\n    }\n\n}\n",
+  "bytecode": "0x605a602c600b82828239805160001a60731460008114601c57601e565bfe5b5030600052607381538281f3fe73000000000000000000000000000000000000000030146080604052600080fdfea265627a7a72305820b7e292a5d52d865ad22eb5d6c2726d5ec6ef8e37e7178b548e858565c744ee166c6578706572696d656e74616cf50037",
+  "deployedBytecode": "0x73000000000000000000000000000000000000000030146080604052600080fdfea265627a7a72305820b7e292a5d52d865ad22eb5d6c2726d5ec6ef8e37e7178b548e858565c744ee166c6578706572696d656e74616cf50037",
+  "sourceMap": "104:1126:3:-;;132:2:-1;166:7;155:9;146:7;137:37;252:7;246:14;243:1;238:23;232:4;229:33;270:1;265:20;;;;222:63;;265:20;274:9;222:63;;298:9;295:1;288:20;328:4;319:7;311:22;352:7;343;336:24",
+  "deployedSourceMap": "104:1126:3:-;;;;;;;;",
+  "source": "// SPDX-License-Identifier: GPL-3.0\npragma experimental ABIEncoderV2;\npragma solidity >=0.4.25 <0.9.0;\n\nlibrary Types {\n    enum UserRole {\n        producer, \n        device,\n        database, \n        consumer, \n        buyer // può anche vendere \n        // questi sono gli utenti della blockchain\n    }\n\n    struct UserDetails {\n        UserRole role;\n        address id_;\n        string name;\n        string email;\n        bool isValue;\n    }\n\n    struct Lot {\n        uint256 id_lot;\n        string barcodeId;\n        address lot_user_addr;\n        string source;\n        string variety;\n        string quality; \n        uint256 temprature; \n        uint256 humidity; \n        uint256 date; \n        uint256 stockdate;\n    }\n\nenum Action{\n    added,\n    transaction,\n    update\n}\n\n    struct UserHistory {\n        address id_; \n        uint256 date; \n        uint256 stockdate;\n        Action action;\n    }\n\n\n    struct LotHistory {\n        UserHistory[] usershistory;\n\n    }\n    enum TransactionType {\n        ecommerce, \n        auction,\n        sale\n    }\n    struct Transaction {\n        address buyer;\n        address receiver;\n        string transferdate;\n        uint256 price;\n        TransactionType type_;\n    }\n\n}\n",
   "sourcePath": "/home/sim/supplychain/contracts/Types.sol",
   "ast": {
     "absolutePath": "/home/sim/supplychain/contracts/Types.sol",
@@ -790,10 +790,10 @@
               {
                 "constant": false,
                 "id": 542,
-                "name": "currentdate",
+                "name": "transferdate",
                 "nodeType": "VariableDeclaration",
                 "scope": 547,
-                "src": "1147:18:3",
+                "src": "1147:19:3",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -819,7 +819,7 @@
                 "name": "price",
                 "nodeType": "VariableDeclaration",
                 "scope": 547,
-                "src": "1175:13:3",
+                "src": "1176:13:3",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -830,7 +830,7 @@
                   "id": 543,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
-                  "src": "1175:7:3",
+                  "src": "1176:7:3",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -845,7 +845,7 @@
                 "name": "type_",
                 "nodeType": "VariableDeclaration",
                 "scope": 547,
-                "src": "1198:21:3",
+                "src": "1199:21:3",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -858,7 +858,7 @@
                   "name": "TransactionType",
                   "nodeType": "UserDefinedTypeName",
                   "referencedDeclaration": 536,
-                  "src": "1198:15:3",
+                  "src": "1199:15:3",
                   "typeDescriptions": {
                     "typeIdentifier": "t_enum$_TransactionType_$536",
                     "typeString": "enum Types.TransactionType"
@@ -871,15 +871,15 @@
             "name": "Transaction",
             "nodeType": "StructDefinition",
             "scope": 548,
-            "src": "1069:157:3",
+            "src": "1069:158:3",
             "visibility": "public"
           }
         ],
         "scope": 549,
-        "src": "104:1125:3"
+        "src": "104:1126:3"
       }
     ],
-    "src": "36:1194:3"
+    "src": "36:1195:3"
   },
   "legacyAST": {
     "absolutePath": "/home/sim/supplychain/contracts/Types.sol",
@@ -1664,10 +1664,10 @@
               {
                 "constant": false,
                 "id": 542,
-                "name": "currentdate",
+                "name": "transferdate",
                 "nodeType": "VariableDeclaration",
                 "scope": 547,
-                "src": "1147:18:3",
+                "src": "1147:19:3",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -1693,7 +1693,7 @@
                 "name": "price",
                 "nodeType": "VariableDeclaration",
                 "scope": 547,
-                "src": "1175:13:3",
+                "src": "1176:13:3",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -1704,7 +1704,7 @@
                   "id": 543,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
-                  "src": "1175:7:3",
+                  "src": "1176:7:3",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -1719,7 +1719,7 @@
                 "name": "type_",
                 "nodeType": "VariableDeclaration",
                 "scope": 547,
-                "src": "1198:21:3",
+                "src": "1199:21:3",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -1732,7 +1732,7 @@
                   "name": "TransactionType",
                   "nodeType": "UserDefinedTypeName",
                   "referencedDeclaration": 536,
-                  "src": "1198:15:3",
+                  "src": "1199:15:3",
                   "typeDescriptions": {
                     "typeIdentifier": "t_enum$_TransactionType_$536",
                     "typeString": "enum Types.TransactionType"
@@ -1745,15 +1745,15 @@
             "name": "Transaction",
             "nodeType": "StructDefinition",
             "scope": 548,
-            "src": "1069:157:3",
+            "src": "1069:158:3",
             "visibility": "public"
           }
         ],
         "scope": 549,
-        "src": "104:1125:3"
+        "src": "104:1126:3"
       }
     ],
-    "src": "36:1194:3"
+    "src": "36:1195:3"
   },
   "compiler": {
     "name": "solc",
@@ -1761,7 +1761,7 @@
   },
   "networks": {},
   "schemaVersion": "3.0.1",
-  "updatedAt": "2023-12-17T00:35:40.705Z",
+  "updatedAt": "2023-12-20T23:41:31.719Z",
   "devdoc": {
     "methods": {}
   },
