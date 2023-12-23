@@ -8,6 +8,8 @@ import "./oss.sol";
 import "./sms.sol";
 contract SupplyChain is Users, Lots, oss, sms {
 
+
+    
     function addLot(Types.Lot memory lot_, uint256 currentTime_)
         public
         userExists
@@ -16,6 +18,7 @@ contract SupplyChain is Users, Lots, oss, sms {
 
         addALot(lot_, currentTime_);
     }
+    
     
     function addTransaction(Types.Transaction memory transaction_,string memory barcodeId_, uint256 currentTime_)
         public

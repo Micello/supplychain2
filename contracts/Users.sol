@@ -12,7 +12,7 @@ contract Users {
     constructor() public {
         Types.UserDetails memory producer = Types.UserDetails({
             role: Types.UserRole.device,
-            id_: 0x404BEc9172f4c55790e9f2D9dBbdBc5feb4d215C,
+            id_: 0x795588Ec361F2b766Ea61Cd4B65c42e0Dd4a876B,
             name: "IoT",
             email: "IoT@example.com",
             isValue: true

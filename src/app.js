@@ -1,3 +1,19 @@
+const json1 = '{"id_lot": 1, "barcodeId": "ABC123", "lot_user_addr": "0x404BEc9172f4c5579L0e9f2D9dBbdBc5feb4d215C", "source": "Supplier", "variety": "TypeA", "quality": "High", "temprature": 25, "humidity": 50,"date": 10, "stockdate": 0}';
+const jsonData1 = JSON.parse(json1);
+const json2 = '{"id_lot": 2, "barcodeId": "ABC124", "lot_user_addr": "0x404BEc9172f4c5579L0e9f2D9dBbdBc5feb4d215C", "source": "Supplier", "variety": "TypeA", "quality": "High", "temprature": 25, "humidity": 50,"date": 10, "stockdate": 0}';
+const jsonData2 = JSON.parse(json2);
+const json3 = '{"id_lot": 3, "barcodeId": "ABC125", "lot_user_addr": "0x404BEc9172f4c5579L0e9f2D9dBbdBc5feb4d215C", "source": "Supplier", "variety": "TypeA", "quality": "High", "temprature": 25, "humidity": 50,"date": 10, "stockdate": 0}';
+const jsonData3 = JSON.parse(json3);
+
+
+const listItems1 = Object.entries(jsonData1).map(([key, value]) => `<li><strong>${key}:</strong> ${value}</li>`);
+const contentToRender1 = `<ul>${listItems1.join('')}</ul>`;
+const listItems2 = Object.entries(jsonData2).map(([key, value]) => `<li><strong>${key}:</strong> ${value}</li>`);
+const contentToRender2 = `<ul>${listItems2.join('')}</ul>`;
+const listItems3 = Object.entries(jsonData3).map(([key, value]) => `<li><strong>${key}:</strong> ${value}</li>`);
+const contentToRender3 = `<ul>${listItems3.join('')}</ul>`;
+
+
 App = {
   loading: false,
   contracts: {},
@@ -7,6 +23,7 @@ App = {
     await App.loadAccount()
     await App.loadContract()
     await App.render()
+
   },
 
   // https://medium.com/metamask/https-medium-com-metamask-breaking-change-injecting-web3-7722797916a8
@@ -69,55 +86,58 @@ App = {
     // Render Account
     $('#account').html(App.account)
 
-    // Render Tasks
-    await App.getLots()
+ 
 
     // Update loading state
     App.setLoading(false)
   },
 
-  getLots: async () => {
-    // Load the total task count from the blockchain
-    const lots = await App.supplyChain.getAllLots();
-    const lotsListElement = $('#lotsList');
+  renderLots: async () => {
+ 
 
-    // Iterate over the lots array
-    lots.forEach((lot) => {
-        // Create a new HTML element for each lot
-        const lotElement = $('<div>').addClass('lot');
-
-        // Populate the HTML element with lot information
-        lotElement.append(`<strong>ID:</strong> ${lot.id_lot}`);
-        lotElement.append(`<br><strong>Barcode ID:</strong> ${lot.barcodeId}`);
-        lotElement.append(`<br><strong>User Address:</strong> ${lot.lot_user_addr}`);
-        lotElement.append(`<br><strong>Source:</strong> ${lot.source}`);
-        lotElement.append(`<br><strong>Variety:</strong> ${lot.variety}`);
-        lotElement.append(`<br><strong>Quality:</strong> ${lot.quality}`);
-        lotElement.append(`<br><strong>Temperature:</strong> ${lot.temprature}`);
-        lotElement.append(`<br><strong>Humidity:</strong> ${lot.humidity}`);
-        lotElement.append(`<br><strong>Date:</strong> ${lot.date}`);
-        lotElement.append(`<br><strong>Stock Date:</strong> ${lot.stockdate}`);
-
-        // Append the lot element to the 'lotsList' element in your HTML
-        lotsListElement.append(lotElement);
-    })
-  },
-    
+    const renderedContentElement = $('#renderedContent');
+  contentsToRender = [contentToRender1,contentToRender2,contentToRender3];
+  contentsToRender.forEach((content, index) => {
+  const newDiv = $('<div>').html(content);
+  renderedContentElement.append(newDiv);
   
 
-  createTask: async () => {
-    App.setLoading(true)
-    const content = $('#newTask').val()
-    await App.supplyChain.createTask(content)
-    window.location.reload()
+});
   },
 
-  toggleCompleted: async (e) => {
-    App.setLoading(true)
-    const taskId = e.target.name
-    await App.supplyChain.toggleCompleted(taskId)
-    window.location.reload()
+
+  renderSingleLot: async (barcodeId) => {
+    const renderedContentElement = $('#renderedLot');
+    try {
+      let contentsToRender;
+  
+      if (barcodeId == 1) {
+        contentsToRender = contentToRender1;
+      } else if (barcodeId == 2) {
+        contentsToRender = contentToRender2;
+      } else if (barcodeId == 3) {
+        contentsToRender = contentToRender3;
+      } else {
+        renderedContentElement.html(`No content found for Barcode ID ${barcodeId}.`);
+        return;
+      }
+  
+    renderedContentElement.html(contentsToRender);
+    } catch (error) {
+      console.error(error.message);
+      renderedContentElement.html("Error rendering content.");
+    }
   },
+  
+    
+
+  
+ 
+  
+
+
+
+
 
   setLoading: (boolean) => {
     App.loading = boolean
@@ -135,6 +155,11 @@ App = {
 
 $(() => {
   $(window).load(() => {
-    App.load()
+    App.load();
+    $('#renderLotsButton').click(() => {
+      App.renderLots(); // Call the function when the button is clicked
+      
+    });
   })
 })
+
