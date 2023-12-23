@@ -54,14 +54,14 @@
       "type": "event"
     }
   ],
-  "bytecode": "0x6080604052348015600f57600080fd5b50604380601d6000396000f3fe6080604052600080fdfea265627a7a72305820111560aa2f57b30da65a3cfe03b7e6d1544a39bb2563991d731171d0c03b76826c6578706572696d656e74616cf50037",
-  "deployedBytecode": "0x6080604052600080fdfea265627a7a72305820111560aa2f57b30da65a3cfe03b7e6d1544a39bb2563991d731171d0c03b76826c6578706572696d656e74616cf50037",
+  "bytecode": "0x6080604052348015600f57600080fd5b50604380601d6000396000f3fe6080604052600080fdfea265627a7a72305820c05ea6abbe76254b7c0e155682f8541f5e2aeea9dcd459a274c9ecaa67c388226c6578706572696d656e74616cf50037",
+  "deployedBytecode": "0x6080604052600080fdfea265627a7a72305820c05ea6abbe76254b7c0e155682f8541f5e2aeea9dcd459a274c9ecaa67c388226c6578706572696d656e74616cf50037",
   "sourceMap": "147:576:5:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;147:576:5;;;;;;;",
   "deployedSourceMap": "147:576:5:-;;;;;",
   "source": "// SPDX-License-Identifier: GPL-3.0\npragma experimental ABIEncoderV2;\npragma solidity >=0.4.25 <0.9.0;\n\nimport \"./Types.sol\";\nimport \"./Lots.sol\";\ncontract oss is Lots{\n\n    function add_transaction(\n        Types.Transaction memory transaction_,\n        string memory barcodeId_, // Per aggiungere in lotHistory,\n        uint256 currentTime_ // anche questo per lotHistory\n    ) internal LotExists(barcodeId_) {\n        transactions.push(transaction_);\n        Types.Lot memory lot_ = lot[barcodeId_];\n        lotHistory[lot_.barcodeId].usershistory.push(Types.UserHistory({\n            id_: msg.sender,\n            date: currentTime_,\n            stockdate: 0,\n            action: Types.Action.transaction\n}));\n\n\n\n    }\n}",
-  "sourcePath": "/home/sim/supplychain/contracts/oss.sol",
+  "sourcePath": "/home/simo/sc/supplychain2/contracts/oss.sol",
   "ast": {
-    "absolutePath": "/home/sim/supplychain/contracts/oss.sol",
+    "absolutePath": "/home/simo/sc/supplychain2/contracts/oss.sol",
     "exportedSymbols": {
       "oss": [
         852
@@ -94,7 +94,7 @@
         "src": "70:32:5"
       },
       {
-        "absolutePath": "/home/sim/supplychain/contracts/Types.sol",
+        "absolutePath": "/home/simo/sc/supplychain2/contracts/Types.sol",
         "file": "./Types.sol",
         "id": 803,
         "nodeType": "ImportDirective",
@@ -105,7 +105,7 @@
         "unitAlias": ""
       },
       {
-        "absolutePath": "/home/sim/supplychain/contracts/Lots.sol",
+        "absolutePath": "/home/simo/sc/supplychain2/contracts/Lots.sol",
         "file": "./Lots.sol",
         "id": 804,
         "nodeType": "ImportDirective",
@@ -727,7 +727,7 @@
     "src": "36:687:5"
   },
   "legacyAST": {
-    "absolutePath": "/home/sim/supplychain/contracts/oss.sol",
+    "absolutePath": "/home/simo/sc/supplychain2/contracts/oss.sol",
     "exportedSymbols": {
       "oss": [
         852
@@ -760,7 +760,7 @@
         "src": "70:32:5"
       },
       {
-        "absolutePath": "/home/sim/supplychain/contracts/Types.sol",
+        "absolutePath": "/home/simo/sc/supplychain2/contracts/Types.sol",
         "file": "./Types.sol",
         "id": 803,
         "nodeType": "ImportDirective",
@@ -771,7 +771,7 @@
         "unitAlias": ""
       },
       {
-        "absolutePath": "/home/sim/supplychain/contracts/Lots.sol",
+        "absolutePath": "/home/simo/sc/supplychain2/contracts/Lots.sol",
         "file": "./Lots.sol",
         "id": 804,
         "nodeType": "ImportDirective",
@@ -1398,7 +1398,7 @@
   },
   "networks": {},
   "schemaVersion": "3.0.1",
-  "updatedAt": "2023-12-20T23:41:31.720Z",
+  "updatedAt": "2023-12-23T16:19:09.672Z",
   "devdoc": {
     "methods": {}
   },

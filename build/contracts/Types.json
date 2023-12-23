@@ -1,14 +1,14 @@
 {
   "contractName": "Types",
   "abi": [],
-  "bytecode": "0x605a602c600b82828239805160001a60731460008114601c57601e565bfe5b5030600052607381538281f3fe73000000000000000000000000000000000000000030146080604052600080fdfea265627a7a72305820b7e292a5d52d865ad22eb5d6c2726d5ec6ef8e37e7178b548e858565c744ee166c6578706572696d656e74616cf50037",
-  "deployedBytecode": "0x73000000000000000000000000000000000000000030146080604052600080fdfea265627a7a72305820b7e292a5d52d865ad22eb5d6c2726d5ec6ef8e37e7178b548e858565c744ee166c6578706572696d656e74616cf50037",
+  "bytecode": "0x605a602c600b82828239805160001a60731460008114601c57601e565bfe5b5030600052607381538281f3fe73000000000000000000000000000000000000000030146080604052600080fdfea265627a7a72305820dc7ab44e40bdb43872f9eaf3434817d77b2d660875764715e8bfcab39e1be2d76c6578706572696d656e74616cf50037",
+  "deployedBytecode": "0x73000000000000000000000000000000000000000030146080604052600080fdfea265627a7a72305820dc7ab44e40bdb43872f9eaf3434817d77b2d660875764715e8bfcab39e1be2d76c6578706572696d656e74616cf50037",
   "sourceMap": "104:1126:3:-;;132:2:-1;166:7;155:9;146:7;137:37;252:7;246:14;243:1;238:23;232:4;229:33;270:1;265:20;;;;222:63;;265:20;274:9;222:63;;298:9;295:1;288:20;328:4;319:7;311:22;352:7;343;336:24",
   "deployedSourceMap": "104:1126:3:-;;;;;;;;",
   "source": "// SPDX-License-Identifier: GPL-3.0\npragma experimental ABIEncoderV2;\npragma solidity >=0.4.25 <0.9.0;\n\nlibrary Types {\n    enum UserRole {\n        producer, \n        device,\n        database, \n        consumer, \n        buyer // può anche vendere \n        // questi sono gli utenti della blockchain\n    }\n\n    struct UserDetails {\n        UserRole role;\n        address id_;\n        string name;\n        string email;\n        bool isValue;\n    }\n\n    struct Lot {\n        uint256 id_lot;\n        string barcodeId;\n        address lot_user_addr;\n        string source;\n        string variety;\n        string quality; \n        uint256 temprature; \n        uint256 humidity; \n        uint256 date; \n        uint256 stockdate;\n    }\n\nenum Action{\n    added,\n    transaction,\n    update\n}\n\n    struct UserHistory {\n        address id_; \n        uint256 date; \n        uint256 stockdate;\n        Action action;\n    }\n\n\n    struct LotHistory {\n        UserHistory[] usershistory;\n\n    }\n    enum TransactionType {\n        ecommerce, \n        auction,\n        sale\n    }\n    struct Transaction {\n        address buyer;\n        address receiver;\n        string transferdate;\n        uint256 price;\n        TransactionType type_;\n    }\n\n}\n",
-  "sourcePath": "/home/sim/supplychain/contracts/Types.sol",
+  "sourcePath": "/home/simo/sc/supplychain2/contracts/Types.sol",
   "ast": {
-    "absolutePath": "/home/sim/supplychain/contracts/Types.sol",
+    "absolutePath": "/home/simo/sc/supplychain2/contracts/Types.sol",
     "exportedSymbols": {
       "Types": [
         548
@@ -882,7 +882,7 @@
     "src": "36:1195:3"
   },
   "legacyAST": {
-    "absolutePath": "/home/sim/supplychain/contracts/Types.sol",
+    "absolutePath": "/home/simo/sc/supplychain2/contracts/Types.sol",
     "exportedSymbols": {
       "Types": [
         548
@@ -1761,7 +1761,7 @@
   },
   "networks": {},
   "schemaVersion": "3.0.1",
-  "updatedAt": "2023-12-20T23:41:31.719Z",
+  "updatedAt": "2023-12-23T16:19:09.671Z",
   "devdoc": {
     "methods": {}
   },

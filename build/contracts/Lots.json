@@ -54,14 +54,14 @@
       "type": "event"
     }
   ],
-  "bytecode": "0x6080604052348015600f57600080fd5b50604380601d6000396000f3fe6080604052600080fdfea265627a7a72305820b5dca89dc7eae5f0ace522ae65c6a6fbb05052f9f9e951dfe924d20f3985bb4e6c6578706572696d656e74616cf50037",
-  "deployedBytecode": "0x6080604052600080fdfea265627a7a72305820b5dca89dc7eae5f0ace522ae65c6a6fbb05052f9f9e951dfe924d20f3985bb4e6c6578706572696d656e74616cf50037",
+  "bytecode": "0x6080604052348015600f57600080fd5b50604380601d6000396000f3fe6080604052600080fdfea265627a7a72305820ec0048d65a27b03d6e9fc2ed67cf9ff742ce2425ea8a764df50730af7323215a6c6578706572696d656e74616cf50037",
+  "deployedBytecode": "0x6080604052600080fdfea265627a7a72305820ec0048d65a27b03d6e9fc2ed67cf9ff742ce2425ea8a764df50730af7323215a6c6578706572696d656e74616cf50037",
   "sourceMap": "127:2774:0:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;127:2774:0;;;;;;;",
   "deployedSourceMap": "127:2774:0:-;;;;;",
   "source": "// SPDX-License-Identifier: GPL-3.0\npragma experimental ABIEncoderV2;\npragma solidity >=0.4.25 <0.9.0;\n\nimport \"./Types.sol\";\n\ncontract Lots {\n    Types.Lot[] internal lots;\n    Types.Transaction[] internal transactions;\n    mapping(string => Types.Lot) internal lot;\n    mapping(address => string[]) internal userLinkedLots;\n    mapping(string => Types.LotHistory) internal lotHistory; //ogni lotto ha la propria history\n\n    // Events\n\n    event NewLot(\n        uint256 id_lot,\n        string barcodeId,\n        address lot_user_addr,\n        string source,\n        string variety,\n        string quality, \n        uint256 temprature, \n        uint256 humidity,\n        uint256 date\n    );\n\n\n    function getUserLots() internal view returns (Types.Lot[] memory) {\n        string[] memory ids_ = userLinkedLots[msg.sender];\n        Types.Lot[] memory lots_ = new Types.Lot[](ids_.length);\n        for (uint256 i = 0; i < ids_.length; i++) {\n            lots_[i] = lot[ids_[i]];\n        }\n        return lots_;\n    }\n\n\n    function getSpecificLotHistory(string memory barcodeId_)\n        internal\n        view\n        returns (Types.Lot memory, Types.LotHistory memory)\n    {\n        return (lot[barcodeId_], lotHistory[barcodeId_]);\n    }\n\n        function getSpecificLot(string memory barcodeId_)\n        internal\n        view\n        returns (Types.Lot memory)\n    {\n        return (lot[barcodeId_]);\n    }\n\n    function addALot(Types.Lot memory lot_, uint256 currentTime_)\n        internal \n        LotNotExists(lot_.barcodeId)\n    {\n        require(\n            lot_.lot_user_addr == msg.sender,\n            \"Only user can add its own user's lot\"\n        );\n\n        lots.push(lot_);\n        lot[lot_.barcodeId] = lot_; //dovrebbe servire a controllare velocemente che un lotto esista (vedi LotExists)\n        lotHistory[lot_.barcodeId].usershistory.push(Types.UserHistory({\n            id_: msg.sender,\n            date: currentTime_,\n            stockdate: 0,\n            action: Types.Action.added\n        }));\n\n        userLinkedLots[msg.sender].push(lot_.barcodeId);\n        emit NewLot(\n            lot_.id_lot,\n            lot_.barcodeId,\n            lot_.lot_user_addr,\n            lot_.source,\n            lot_.variety,\n            lot_.quality, \n            lot_.temprature, \n            lot_.humidity,\n            lot_.date\n        );\n    }\n\n\n\n\n    // Modifiers\n\n    modifier LotExists(string memory id_) {\n        require(!compareStrings(lot[id_].barcodeId, \"\"),\"lot does not exists\");\n        _;\n    }\n\n    modifier LotNotExists(string memory id_) {\n        require(compareStrings(lot[id_].barcodeId, \"\"),\"lot does already exists\");\n        _;\n    }\n\n    \n    function compareStrings(string memory a, string memory b)\n        internal\n        pure\n        returns (bool)\n    {\n        return (keccak256(abi.encodePacked((a))) ==\n            keccak256(abi.encodePacked((b))));\n    }\n}\n",
-  "sourcePath": "/home/sim/supplychain/contracts/Lots.sol",
+  "sourcePath": "/home/simo/sc/supplychain2/contracts/Lots.sol",
   "ast": {
-    "absolutePath": "/home/sim/supplychain/contracts/Lots.sol",
+    "absolutePath": "/home/simo/sc/supplychain2/contracts/Lots.sol",
     "exportedSymbols": {
       "Lots": [
         271
@@ -94,7 +94,7 @@
         "src": "70:32:0"
       },
       {
-        "absolutePath": "/home/sim/supplychain/contracts/Types.sol",
+        "absolutePath": "/home/simo/sc/supplychain2/contracts/Types.sol",
         "file": "./Types.sol",
         "id": 3,
         "nodeType": "ImportDirective",
@@ -3647,7 +3647,7 @@
     "src": "36:2866:0"
   },
   "legacyAST": {
-    "absolutePath": "/home/sim/supplychain/contracts/Lots.sol",
+    "absolutePath": "/home/simo/sc/supplychain2/contracts/Lots.sol",
     "exportedSymbols": {
       "Lots": [
         271
@@ -3680,7 +3680,7 @@
         "src": "70:32:0"
       },
       {
-        "absolutePath": "/home/sim/supplychain/contracts/Types.sol",
+        "absolutePath": "/home/simo/sc/supplychain2/contracts/Types.sol",
         "file": "./Types.sol",
         "id": 3,
         "nodeType": "ImportDirective",
@@ -7238,7 +7238,7 @@
   },
   "networks": {},
   "schemaVersion": "3.0.1",
-  "updatedAt": "2023-12-20T23:41:31.717Z",
+  "updatedAt": "2023-12-23T16:19:09.679Z",
   "devdoc": {
     "methods": {}
   },
