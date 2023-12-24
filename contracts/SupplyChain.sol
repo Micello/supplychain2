@@ -27,10 +27,10 @@ contract SupplyChain is Users, Lots, oss, sms {
         add_transaction(transaction_, barcodeId_, currentTime_);
     }
 
-        function updateStockdate(string memory barcodeId_, uint256 newStockDate)
-        public
-        userExists
-        hasRole(Types.UserRole.database)
+    function updateStockdate(string memory barcodeId_, uint256 newStockDate)
+    public
+    userExists
+    hasRole(Types.UserRole.database)
     {
         update_StockDate(barcodeId_, newStockDate);
     }
@@ -59,6 +59,8 @@ contract SupplyChain is Users, Lots, oss, sms {
     {
         return getSpecificLot(barcodeId_);
     }
+
+    
 
     function getSingleLotHistory(string memory barcodeId_)
         public

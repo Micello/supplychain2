@@ -1,3 +1,5 @@
+
+// Json file to be implemented from blockchain
 const json1 = '{"id_lot": 1, "barcodeId": "ABC123", "lot_user_addr": "0x404BEc9172f4c5579L0e9f2D9dBbdBc5feb4d215C", "source": "Supplier", "variety": "TypeA", "quality": "High", "temprature": 25, "humidity": 50,"date": 10, "stockdate": 0}';
 const jsonData1 = JSON.parse(json1);
 const json2 = '{"id_lot": 2, "barcodeId": "ABC124", "lot_user_addr": "0x404BEc9172f4c5579L0e9f2D9dBbdBc5feb4d215C", "source": "Supplier", "variety": "TypeA", "quality": "High", "temprature": 25, "humidity": 50,"date": 10, "stockdate": 0}';
@@ -27,6 +29,7 @@ App = {
   },
 
   // https://medium.com/metamask/https-medium-com-metamask-breaking-change-injecting-web3-7722797916a8
+  // Per funzionare ha bisogno di web3@0.20.6
   loadWeb3: async () => {
     if (typeof web3 !== 'undefined') {
       App.web3Provider = web3.currentProvider
@@ -94,8 +97,8 @@ App = {
 
   renderLots: async () => {
  
-
-    const renderedContentElement = $('#renderedContent');
+  lot = App.supplyChain.get
+  const renderedContentElement = $('#renderedContent');
   contentsToRender = [contentToRender1,contentToRender2,contentToRender3];
   contentsToRender.forEach((content, index) => {
   const newDiv = $('<div>').html(content);

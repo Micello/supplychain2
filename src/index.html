@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Dapp University | Todo List</title>
+    <title>MARKET Supply Chain</title>
 
     <!-- Bootstrap -->
     <link href="vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -67,12 +67,12 @@
             <p class="text-center">Loading...</p>
           </div>
           <div id="content">
-            <p>Clicca per mostrare tutti i lotti registrati all'interno della blockchain</p>
+            <p>Mostra tutti i lotti registrati all'interno della blockchain</p>
             <button id="renderLotsButton">Mostra lotti</button>
             <div id="renderedContent"></div>
-            <p>Inserire ID del lotto</p>
+            <p>Inserire ID per ottenere il singolo lotto</p>
             <form onsubmit="App.renderSingleLot($('#barcodeInput').val()); return false;">
-              <input id="barcodeInput" type="text" class="form-control" placeholder="Get specific lot..." required>
+              <input id="barcodeInput" type="text" class="form-control" placeholder="Inserire ID lotto" required>
               <input type="submit" hidden="">
             </form>
             <div id="renderedLot"></div>

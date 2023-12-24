@@ -1,7 +1,7 @@
 const { Web3 } = require('web3');
 const web3 = new Web3('HTTP://127.0.0.1:7545');
 const contractABI = require('./build/contracts/SupplyChain.json').abi;
-const contractAddress = '0xb1921EB154c938c78ea1F0cf4b29D92796040c25';
+const contractAddress = '0x5577574b51B33818e3Bf8248Af10d7F74f862C00';
 
 class Lot {
     constructor(id_lot, barcodeId, lot_user_addr, source, variety, quality, temprature, humidity, date, stockdate) {
@@ -18,26 +18,44 @@ class Lot {
     }
 }
 
-function parseJsonToLot(jsonData) {
+function lotToJson(lotInstance) {
+    const json = JSON.stringify({
+        id_lot: lotInstance.id_lot,
+        barcodeId: lotInstance.barcodeId,
+        lot_user_addr: lotInstance.lot_user_addr,
+        source: lotInstance.source,
+        variety: lotInstance.variety,
+        quality: lotInstance.quality,
+        temprature: lotInstance.temprature,
+        humidity: lotInstance.humidity,
+        date: lotInstance.date,
+        stockdate: lotInstance.stockdate
+    });
 
-    const parsedData = JSON.parse(jsonData);
-    const { id_lot, barcodeId, lot_user_addr, source, variety, quality, temprature, humidity, date, stockdate} = parsedData;
-
-    return new Lot(id_lot, barcodeId, lot_user_addr, source, variety, quality, temprature, humidity, date, stockdate);
+    return json;
 }
 
 async function interactWithContract(jsonData) {
-
     const lotInstance = parseJsonToLot(jsonData);
     const contract = new web3.eth.Contract(contractABI, contractAddress);
 
     try {
         const accounts = await web3.eth.getAccounts();
         const senderAddress = accounts[0];
-        
+
         const result = await contract.methods
             .addLot(
-                lotInstance,Math.floor(Date.now()/1000)
+                lotInstance.id_lot,
+                lotInstance.barcodeId,
+                lotInstance.lot_user_addr,
+                lotInstance.source,
+                lotInstance.variety,
+                lotInstance.quality,
+                lotInstance.temprature,
+                lotInstance.humidity,
+                lotInstance.date,
+                lotInstance.stockdate,
+                Math.floor(Date.now() / 1000)
             )
             .send({ from: senderAddress, gas: '5000000' });
 
@@ -48,6 +66,7 @@ async function interactWithContract(jsonData) {
     }
 }
 
-const jsonData = '{"id_lot": 123, "barcodeId": "123", "lot_user_addr": "0x34Ed5c223A5f5041b2b8Ef52c842700c1ee1D6E9", "source": "Supplier", "variety": "TypeA", "quality": "High", "temprature": 25, "humidity": 50,"date": 10, "stockdate": 0}';
+const lotInstance = new Lot(1, '0094', '0x404BEc9172f4c55790e9f2D9dBbdBc5feb4d215C', 'Supplier', 'TypeA', 'High', 25, 50, 10, 0);
+const jsonData = lotToJson(lotInstance);
 
 interactWithContract(jsonData);
