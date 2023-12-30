@@ -24,6 +24,6 @@
   },
   "dependencies": {
     "@metamask/sdk": "^0.14.1",
-    "web3": "^0.20.7"
+    "web3": "^4.3.0"
   }
 }
