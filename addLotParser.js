@@ -48,6 +48,6 @@ async function interactWithContract(jsonData) {
     }
 }
 
-const jsonData = '{"id_lot": 123, "barcodeId": "132", "lot_user_addr": "0x2B2Cfe1b7a6e27DC92673c09f76aFe1326918Bbf", "source": "Supplier", "variety": "TypeA", "quality": "High", "temprature": 25, "humidity": 50,"date": 10, "stockdate": 0}';
+const jsonData = '{"id_lot": 123, "barcodeId": "13", "lot_user_addr": "0x2B2Cfe1b7a6e27DC92673c09f76aFe1326918Bbf", "source": "Supplier", "variety": "TypeA", "quality": "High", "temprature": 25, "humidity": 50,"date": 10, "stockdate": 0}';
 
 interactWithContract(jsonData);
