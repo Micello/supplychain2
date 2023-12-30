@@ -1,7 +1,7 @@
 const { Web3 } = require('web3');
 const web3 = new Web3('HTTP://127.0.0.1:7545');
 const contractABI = require('./build/contracts/SupplyChain.json').abi;
-const contractAddress = '0xf26C8EF7578353431528a8FeA07E03523AB22610';
+const contractAddress = '0x2F8fbdB7d437463b5773Aaaa0c5134735c2D4C5E';
 
 class Transaction {
     constructor(senderAddress, receiverAddress, date, price, type_) {
@@ -27,7 +27,8 @@ function parseJsonToLot(jsonData) {
 }
 
 async function interactWithContract(jsonData) {
-    const { transactionInstance, barcodeId } = parseJsonToLot(jsonData);
+    const  transactionInstance = parseJsonToLot(jsonData);
+    barcodeId = "13"
     const contract = new web3.eth.Contract(contractABI, contractAddress);
 
     try {

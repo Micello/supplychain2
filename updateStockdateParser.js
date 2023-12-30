@@ -25,5 +25,5 @@ async function interactWithContract(jsonData) {
     }
 }
 
-const jsonData = '{"barcodeId": "2", "newstockdate": 40}';
+const jsonData = '{"barcodeId": "13", "newstockdate": 40}';
 interactWithContract(jsonData);

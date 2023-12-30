@@ -64,14 +64,14 @@
     "absolutePath": "/home/simo/sc/supplychain2/contracts/sms.sol",
     "exportedSymbols": {
       "sms": [
-        915
+        904
       ]
     },
-    "id": 916,
+    "id": 905,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 865,
+        "id": 854,
         "literals": [
           "experimental",
           "ABIEncoderV2"
@@ -80,7 +80,7 @@
         "src": "36:33:6"
       },
       {
-        "id": 866,
+        "id": 855,
         "literals": [
           "solidity",
           ">=",
@@ -96,10 +96,10 @@
       {
         "absolutePath": "/home/simo/sc/supplychain2/contracts/Types.sol",
         "file": "./Types.sol",
-        "id": 867,
+        "id": 856,
         "nodeType": "ImportDirective",
-        "scope": 916,
-        "sourceUnit": 560,
+        "scope": 905,
+        "sourceUnit": 549,
         "src": "104:21:6",
         "symbolAliases": [],
         "unitAlias": ""
@@ -107,9 +107,9 @@
       {
         "absolutePath": "/home/simo/sc/supplychain2/contracts/Lots.sol",
         "file": "./Lots.sol",
-        "id": 868,
+        "id": 857,
         "nodeType": "ImportDirective",
-        "scope": 916,
+        "scope": 905,
         "sourceUnit": 272,
         "src": "126:20:6",
         "symbolAliases": [],
@@ -121,7 +121,7 @@
             "arguments": null,
             "baseName": {
               "contractScope": null,
-              "id": 869,
+              "id": 858,
               "name": "Lots",
               "nodeType": "UserDefinedTypeName",
               "referencedDeclaration": 271,
@@ -131,7 +131,7 @@
                 "typeString": "contract Lots"
               }
             },
-            "id": 870,
+            "id": 859,
             "nodeType": "InheritanceSpecifier",
             "src": "163:4:6"
           }
@@ -142,9 +142,9 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 915,
+        "id": 904,
         "linearizedBaseContracts": [
-          915,
+          904,
           271
         ],
         "name": "sms",
@@ -152,37 +152,37 @@
         "nodes": [
           {
             "body": {
-              "id": 913,
+              "id": 902,
               "nodeType": "Block",
               "src": "275:436:6",
               "statements": [
                 {
                   "assignments": [
-                    883
+                    872
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 883,
+                      "id": 872,
                       "name": "lot_",
                       "nodeType": "VariableDeclaration",
-                      "scope": 913,
+                      "scope": 902,
                       "src": "281:22:6",
                       "stateVariable": false,
                       "storageLocation": "storage",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Lot_$526_storage_ptr",
+                        "typeIdentifier": "t_struct$_Lot_$515_storage_ptr",
                         "typeString": "struct Types.Lot"
                       },
                       "typeName": {
                         "contractScope": null,
-                        "id": 882,
+                        "id": 871,
                         "name": "Types.Lot",
                         "nodeType": "UserDefinedTypeName",
-                        "referencedDeclaration": 526,
+                        "referencedDeclaration": 515,
                         "src": "281:9:6",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Lot_$526_storage_ptr",
+                          "typeIdentifier": "t_struct$_Lot_$515_storage_ptr",
                           "typeString": "struct Types.Lot"
                         }
                       },
@@ -190,30 +190,30 @@
                       "visibility": "internal"
                     }
                   ],
-                  "id": 887,
+                  "id": 876,
                   "initialValue": {
                     "argumentTypes": null,
                     "baseExpression": {
                       "argumentTypes": null,
-                      "id": 884,
+                      "id": 873,
                       "name": "lot",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
                       "referencedDeclaration": 13,
                       "src": "306:3:6",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_mapping$_t_string_memory_$_t_struct$_Lot_$526_storage_$",
+                        "typeIdentifier": "t_mapping$_t_string_memory_$_t_struct$_Lot_$515_storage_$",
                         "typeString": "mapping(string memory => struct Types.Lot storage ref)"
                       }
                     },
-                    "id": 886,
+                    "id": 875,
                     "indexExpression": {
                       "argumentTypes": null,
-                      "id": 885,
+                      "id": 874,
                       "name": "barcodeId_",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 872,
+                      "referencedDeclaration": 861,
                       "src": "310:10:6",
                       "typeDescriptions": {
                         "typeIdentifier": "t_string_memory_ptr",
@@ -227,7 +227,7 @@
                     "nodeType": "IndexAccess",
                     "src": "306:15:6",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Lot_$526_storage",
+                      "typeIdentifier": "t_struct$_Lot_$515_storage",
                       "typeString": "struct Types.Lot storage ref"
                     }
                   },
@@ -236,31 +236,31 @@
                 },
                 {
                   "assignments": [
-                    891
+                    880
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 891,
+                      "id": 880,
                       "name": "newUserHistory",
                       "nodeType": "VariableDeclaration",
-                      "scope": 913,
+                      "scope": 902,
                       "src": "327:39:6",
                       "stateVariable": false,
                       "storageLocation": "memory",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_UserHistory_$539_memory_ptr",
+                        "typeIdentifier": "t_struct$_UserHistory_$528_memory_ptr",
                         "typeString": "struct Types.UserHistory"
                       },
                       "typeName": {
                         "contractScope": null,
-                        "id": 890,
+                        "id": 879,
                         "name": "Types.UserHistory",
                         "nodeType": "UserDefinedTypeName",
-                        "referencedDeclaration": 539,
+                        "referencedDeclaration": 528,
                         "src": "327:17:6",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_UserHistory_$539_storage_ptr",
+                          "typeIdentifier": "t_struct$_UserHistory_$528_storage_ptr",
                           "typeString": "struct Types.UserHistory"
                         }
                       },
@@ -268,7 +268,7 @@
                       "visibility": "internal"
                     }
                   ],
-                  "id": 903,
+                  "id": 892,
                   "initialValue": {
                     "argumentTypes": null,
                     "arguments": [
@@ -276,18 +276,18 @@
                         "argumentTypes": null,
                         "expression": {
                           "argumentTypes": null,
-                          "id": 894,
+                          "id": 883,
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 930,
+                          "referencedDeclaration": 919,
                           "src": "402:3:6",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
                             "typeString": "msg"
                           }
                         },
-                        "id": 895,
+                        "id": 884,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -305,18 +305,18 @@
                         "argumentTypes": null,
                         "expression": {
                           "argumentTypes": null,
-                          "id": 896,
+                          "id": 885,
                           "name": "block",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 920,
+                          "referencedDeclaration": 909,
                           "src": "428:5:6",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_block",
                             "typeString": "block"
                           }
                         },
-                        "id": 897,
+                        "id": 886,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -332,11 +332,11 @@
                       },
                       {
                         "argumentTypes": null,
-                        "id": 898,
+                        "id": 887,
                         "name": "newStockDate",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 874,
+                        "referencedDeclaration": 863,
                         "src": "464:12:6",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
@@ -349,32 +349,32 @@
                           "argumentTypes": null,
                           "expression": {
                             "argumentTypes": null,
-                            "id": 899,
+                            "id": 888,
                             "name": "Types",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 559,
+                            "referencedDeclaration": 548,
                             "src": "494:5:6",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_type$_t_contract$_Types_$559_$",
+                              "typeIdentifier": "t_type$_t_contract$_Types_$548_$",
                               "typeString": "type(library Types)"
                             }
                           },
-                          "id": 900,
+                          "id": 889,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
                           "lValueRequested": false,
                           "memberName": "Action",
                           "nodeType": "MemberAccess",
-                          "referencedDeclaration": 530,
+                          "referencedDeclaration": 519,
                           "src": "494:12:6",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_type$_t_enum$_Action_$530_$",
+                            "typeIdentifier": "t_type$_t_enum$_Action_$519_$",
                             "typeString": "type(enum Types.Action)"
                           }
                         },
-                        "id": 901,
+                        "id": 890,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
@@ -384,7 +384,7 @@
                         "referencedDeclaration": null,
                         "src": "494:19:6",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_enum$_Action_$530",
+                          "typeIdentifier": "t_enum$_Action_$519",
                           "typeString": "enum Types.Action"
                         }
                       }
@@ -393,32 +393,32 @@
                       "argumentTypes": null,
                       "expression": {
                         "argumentTypes": null,
-                        "id": 892,
+                        "id": 881,
                         "name": "Types",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 559,
+                        "referencedDeclaration": 548,
                         "src": "369:5:6",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_type$_t_contract$_Types_$559_$",
+                          "typeIdentifier": "t_type$_t_contract$_Types_$548_$",
                           "typeString": "type(library Types)"
                         }
                       },
-                      "id": 893,
+                      "id": 882,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
                       "lValueRequested": false,
                       "memberName": "UserHistory",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 539,
+                      "referencedDeclaration": 528,
                       "src": "369:17:6",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_type$_t_struct$_UserHistory_$539_storage_ptr_$",
+                        "typeIdentifier": "t_type$_t_struct$_UserHistory_$528_storage_ptr_$",
                         "typeString": "type(struct Types.UserHistory storage pointer)"
                       }
                     },
-                    "id": 902,
+                    "id": 891,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -433,7 +433,7 @@
                     "nodeType": "FunctionCall",
                     "src": "369:208:6",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_UserHistory_$539_memory",
+                      "typeIdentifier": "t_struct$_UserHistory_$528_memory",
                       "typeString": "struct Types.UserHistory memory"
                     }
                   },
@@ -446,14 +446,14 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 910,
+                        "id": 899,
                         "name": "newUserHistory",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 891,
+                        "referencedDeclaration": 880,
                         "src": "693:14:6",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_UserHistory_$539_memory_ptr",
+                          "typeIdentifier": "t_struct$_UserHistory_$528_memory_ptr",
                           "typeString": "struct Types.UserHistory memory"
                         }
                       }
@@ -461,7 +461,7 @@
                     "expression": {
                       "argumentTypes": [
                         {
-                          "typeIdentifier": "t_struct$_UserHistory_$539_memory_ptr",
+                          "typeIdentifier": "t_struct$_UserHistory_$528_memory_ptr",
                           "typeString": "struct Types.UserHistory memory"
                         }
                       ],
@@ -471,41 +471,41 @@
                           "argumentTypes": null,
                           "baseExpression": {
                             "argumentTypes": null,
-                            "id": 904,
+                            "id": 893,
                             "name": "lotHistory",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
                             "referencedDeclaration": 22,
                             "src": "648:10:6",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_mapping$_t_string_memory_$_t_struct$_LotHistory_$543_storage_$",
+                              "typeIdentifier": "t_mapping$_t_string_memory_$_t_struct$_LotHistory_$532_storage_$",
                               "typeString": "mapping(string memory => struct Types.LotHistory storage ref)"
                             }
                           },
-                          "id": 907,
+                          "id": 896,
                           "indexExpression": {
                             "argumentTypes": null,
                             "expression": {
                               "argumentTypes": null,
-                              "id": 905,
+                              "id": 894,
                               "name": "lot_",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 883,
+                              "referencedDeclaration": 872,
                               "src": "659:4:6",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_struct$_Lot_$526_storage_ptr",
+                                "typeIdentifier": "t_struct$_Lot_$515_storage_ptr",
                                 "typeString": "struct Types.Lot storage pointer"
                               }
                             },
-                            "id": 906,
+                            "id": 895,
                             "isConstant": false,
                             "isLValue": true,
                             "isPure": false,
                             "lValueRequested": false,
                             "memberName": "barcodeId",
                             "nodeType": "MemberAccess",
-                            "referencedDeclaration": 509,
+                            "referencedDeclaration": 498,
                             "src": "659:14:6",
                             "typeDescriptions": {
                               "typeIdentifier": "t_string_storage",
@@ -519,25 +519,25 @@
                           "nodeType": "IndexAccess",
                           "src": "648:26:6",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_struct$_LotHistory_$543_storage",
+                            "typeIdentifier": "t_struct$_LotHistory_$532_storage",
                             "typeString": "struct Types.LotHistory storage ref"
                           }
                         },
-                        "id": 908,
+                        "id": 897,
                         "isConstant": false,
                         "isLValue": true,
                         "isPure": false,
                         "lValueRequested": false,
                         "memberName": "usershistory",
                         "nodeType": "MemberAccess",
-                        "referencedDeclaration": 542,
+                        "referencedDeclaration": 531,
                         "src": "648:39:6",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_array$_t_struct$_UserHistory_$539_storage_$dyn_storage",
+                          "typeIdentifier": "t_array$_t_struct$_UserHistory_$528_storage_$dyn_storage",
                           "typeString": "struct Types.UserHistory storage ref[] storage ref"
                         }
                       },
-                      "id": 909,
+                      "id": 898,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -547,11 +547,11 @@
                       "referencedDeclaration": null,
                       "src": "648:44:6",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_function_arraypush_nonpayable$_t_struct$_UserHistory_$539_storage_$returns$_t_uint256_$",
+                        "typeIdentifier": "t_function_arraypush_nonpayable$_t_struct$_UserHistory_$528_storage_$returns$_t_uint256_$",
                         "typeString": "function (struct Types.UserHistory storage ref) returns (uint256)"
                       }
                     },
-                    "id": 911,
+                    "id": 900,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -565,14 +565,14 @@
                       "typeString": "uint256"
                     }
                   },
-                  "id": 912,
+                  "id": 901,
                   "nodeType": "ExpressionStatement",
                   "src": "648:60:6"
                 }
               ]
             },
             "documentation": null,
-            "id": 914,
+            "id": 903,
             "implemented": true,
             "kind": "function",
             "modifiers": [
@@ -580,11 +580,11 @@
                 "arguments": [
                   {
                     "argumentTypes": null,
-                    "id": 877,
+                    "id": 866,
                     "name": "barcodeId_",
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
-                    "referencedDeclaration": 872,
+                    "referencedDeclaration": 861,
                     "src": "263:10:6",
                     "typeDescriptions": {
                       "typeIdentifier": "t_string_memory_ptr",
@@ -592,10 +592,10 @@
                     }
                   }
                 ],
-                "id": 878,
+                "id": 867,
                 "modifierName": {
                   "argumentTypes": null,
-                  "id": 876,
+                  "id": 865,
                   "name": "LotExists",
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
@@ -613,15 +613,15 @@
             "name": "update_StockDate",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 875,
+              "id": 864,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 872,
+                  "id": 861,
                   "name": "barcodeId_",
                   "nodeType": "VariableDeclaration",
-                  "scope": 914,
+                  "scope": 903,
                   "src": "196:24:6",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -630,7 +630,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 871,
+                    "id": 860,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "196:6:6",
@@ -644,10 +644,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 874,
+                  "id": 863,
                   "name": "newStockDate",
                   "nodeType": "VariableDeclaration",
-                  "scope": 914,
+                  "scope": 903,
                   "src": "222:20:6",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -656,7 +656,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 873,
+                    "id": 862,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "222:7:6",
@@ -672,19 +672,19 @@
               "src": "195:48:6"
             },
             "returnParameters": {
-              "id": 879,
+              "id": 868,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "275:0:6"
             },
-            "scope": 915,
+            "scope": 904,
             "src": "170:541:6",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "internal"
           }
         ],
-        "scope": 916,
+        "scope": 905,
         "src": "147:566:6"
       }
     ],
@@ -694,14 +694,14 @@
     "absolutePath": "/home/simo/sc/supplychain2/contracts/sms.sol",
     "exportedSymbols": {
       "sms": [
-        915
+        904
       ]
     },
-    "id": 916,
+    "id": 905,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 865,
+        "id": 854,
         "literals": [
           "experimental",
           "ABIEncoderV2"
@@ -710,7 +710,7 @@
         "src": "36:33:6"
       },
       {
-        "id": 866,
+        "id": 855,
         "literals": [
           "solidity",
           ">=",
@@ -726,10 +726,10 @@
       {
         "absolutePath": "/home/simo/sc/supplychain2/contracts/Types.sol",
         "file": "./Types.sol",
-        "id": 867,
+        "id": 856,
         "nodeType": "ImportDirective",
-        "scope": 916,
-        "sourceUnit": 560,
+        "scope": 905,
+        "sourceUnit": 549,
         "src": "104:21:6",
         "symbolAliases": [],
         "unitAlias": ""
@@ -737,9 +737,9 @@
       {
         "absolutePath": "/home/simo/sc/supplychain2/contracts/Lots.sol",
         "file": "./Lots.sol",
-        "id": 868,
+        "id": 857,
         "nodeType": "ImportDirective",
-        "scope": 916,
+        "scope": 905,
         "sourceUnit": 272,
         "src": "126:20:6",
         "symbolAliases": [],
@@ -751,7 +751,7 @@
             "arguments": null,
             "baseName": {
               "contractScope": null,
-              "id": 869,
+              "id": 858,
               "name": "Lots",
               "nodeType": "UserDefinedTypeName",
               "referencedDeclaration": 271,
@@ -761,7 +761,7 @@
                 "typeString": "contract Lots"
               }
             },
-            "id": 870,
+            "id": 859,
             "nodeType": "InheritanceSpecifier",
             "src": "163:4:6"
           }
@@ -772,9 +772,9 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 915,
+        "id": 904,
         "linearizedBaseContracts": [
-          915,
+          904,
           271
         ],
         "name": "sms",
@@ -782,37 +782,37 @@
         "nodes": [
           {
             "body": {
-              "id": 913,
+              "id": 902,
               "nodeType": "Block",
               "src": "275:436:6",
               "statements": [
                 {
                   "assignments": [
-                    883
+                    872
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 883,
+                      "id": 872,
                       "name": "lot_",
                       "nodeType": "VariableDeclaration",
-                      "scope": 913,
+                      "scope": 902,
                       "src": "281:22:6",
                       "stateVariable": false,
                       "storageLocation": "storage",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Lot_$526_storage_ptr",
+                        "typeIdentifier": "t_struct$_Lot_$515_storage_ptr",
                         "typeString": "struct Types.Lot"
                       },
                       "typeName": {
                         "contractScope": null,
-                        "id": 882,
+                        "id": 871,
                         "name": "Types.Lot",
                         "nodeType": "UserDefinedTypeName",
-                        "referencedDeclaration": 526,
+                        "referencedDeclaration": 515,
                         "src": "281:9:6",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Lot_$526_storage_ptr",
+                          "typeIdentifier": "t_struct$_Lot_$515_storage_ptr",
                           "typeString": "struct Types.Lot"
                         }
                       },
@@ -820,30 +820,30 @@
                       "visibility": "internal"
                     }
                   ],
-                  "id": 887,
+                  "id": 876,
                   "initialValue": {
                     "argumentTypes": null,
                     "baseExpression": {
                       "argumentTypes": null,
-                      "id": 884,
+                      "id": 873,
                       "name": "lot",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
                       "referencedDeclaration": 13,
                       "src": "306:3:6",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_mapping$_t_string_memory_$_t_struct$_Lot_$526_storage_$",
+                        "typeIdentifier": "t_mapping$_t_string_memory_$_t_struct$_Lot_$515_storage_$",
                         "typeString": "mapping(string memory => struct Types.Lot storage ref)"
                       }
                     },
-                    "id": 886,
+                    "id": 875,
                     "indexExpression": {
                       "argumentTypes": null,
-                      "id": 885,
+                      "id": 874,
                       "name": "barcodeId_",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 872,
+                      "referencedDeclaration": 861,
                       "src": "310:10:6",
                       "typeDescriptions": {
                         "typeIdentifier": "t_string_memory_ptr",
@@ -857,7 +857,7 @@
                     "nodeType": "IndexAccess",
                     "src": "306:15:6",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Lot_$526_storage",
+                      "typeIdentifier": "t_struct$_Lot_$515_storage",
                       "typeString": "struct Types.Lot storage ref"
                     }
                   },
@@ -866,31 +866,31 @@
                 },
                 {
                   "assignments": [
-                    891
+                    880
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 891,
+                      "id": 880,
                       "name": "newUserHistory",
                       "nodeType": "VariableDeclaration",
-                      "scope": 913,
+                      "scope": 902,
                       "src": "327:39:6",
                       "stateVariable": false,
                       "storageLocation": "memory",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_UserHistory_$539_memory_ptr",
+                        "typeIdentifier": "t_struct$_UserHistory_$528_memory_ptr",
                         "typeString": "struct Types.UserHistory"
                       },
                       "typeName": {
                         "contractScope": null,
-                        "id": 890,
+                        "id": 879,
                         "name": "Types.UserHistory",
                         "nodeType": "UserDefinedTypeName",
-                        "referencedDeclaration": 539,
+                        "referencedDeclaration": 528,
                         "src": "327:17:6",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_UserHistory_$539_storage_ptr",
+                          "typeIdentifier": "t_struct$_UserHistory_$528_storage_ptr",
                           "typeString": "struct Types.UserHistory"
                         }
                       },
@@ -898,7 +898,7 @@
                       "visibility": "internal"
                     }
                   ],
-                  "id": 903,
+                  "id": 892,
                   "initialValue": {
                     "argumentTypes": null,
                     "arguments": [
@@ -906,18 +906,18 @@
                         "argumentTypes": null,
                         "expression": {
                           "argumentTypes": null,
-                          "id": 894,
+                          "id": 883,
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 930,
+                          "referencedDeclaration": 919,
                           "src": "402:3:6",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
                             "typeString": "msg"
                           }
                         },
-                        "id": 895,
+                        "id": 884,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -935,18 +935,18 @@
                         "argumentTypes": null,
                         "expression": {
                           "argumentTypes": null,
-                          "id": 896,
+                          "id": 885,
                           "name": "block",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 920,
+                          "referencedDeclaration": 909,
                           "src": "428:5:6",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_block",
                             "typeString": "block"
                           }
                         },
-                        "id": 897,
+                        "id": 886,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -962,11 +962,11 @@
                       },
                       {
                         "argumentTypes": null,
-                        "id": 898,
+                        "id": 887,
                         "name": "newStockDate",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 874,
+                        "referencedDeclaration": 863,
                         "src": "464:12:6",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
@@ -979,32 +979,32 @@
                           "argumentTypes": null,
                           "expression": {
                             "argumentTypes": null,
-                            "id": 899,
+                            "id": 888,
                             "name": "Types",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 559,
+                            "referencedDeclaration": 548,
                             "src": "494:5:6",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_type$_t_contract$_Types_$559_$",
+                              "typeIdentifier": "t_type$_t_contract$_Types_$548_$",
                               "typeString": "type(library Types)"
                             }
                           },
-                          "id": 900,
+                          "id": 889,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
                           "lValueRequested": false,
                           "memberName": "Action",
                           "nodeType": "MemberAccess",
-                          "referencedDeclaration": 530,
+                          "referencedDeclaration": 519,
                           "src": "494:12:6",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_type$_t_enum$_Action_$530_$",
+                            "typeIdentifier": "t_type$_t_enum$_Action_$519_$",
                             "typeString": "type(enum Types.Action)"
                           }
                         },
-                        "id": 901,
+                        "id": 890,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
@@ -1014,7 +1014,7 @@
                         "referencedDeclaration": null,
                         "src": "494:19:6",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_enum$_Action_$530",
+                          "typeIdentifier": "t_enum$_Action_$519",
                           "typeString": "enum Types.Action"
                         }
                       }
@@ -1023,32 +1023,32 @@
                       "argumentTypes": null,
                       "expression": {
                         "argumentTypes": null,
-                        "id": 892,
+                        "id": 881,
                         "name": "Types",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 559,
+                        "referencedDeclaration": 548,
                         "src": "369:5:6",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_type$_t_contract$_Types_$559_$",
+                          "typeIdentifier": "t_type$_t_contract$_Types_$548_$",
                           "typeString": "type(library Types)"
                         }
                       },
-                      "id": 893,
+                      "id": 882,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
                       "lValueRequested": false,
                       "memberName": "UserHistory",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 539,
+                      "referencedDeclaration": 528,
                       "src": "369:17:6",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_type$_t_struct$_UserHistory_$539_storage_ptr_$",
+                        "typeIdentifier": "t_type$_t_struct$_UserHistory_$528_storage_ptr_$",
                         "typeString": "type(struct Types.UserHistory storage pointer)"
                       }
                     },
-                    "id": 902,
+                    "id": 891,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1063,7 +1063,7 @@
                     "nodeType": "FunctionCall",
                     "src": "369:208:6",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_UserHistory_$539_memory",
+                      "typeIdentifier": "t_struct$_UserHistory_$528_memory",
                       "typeString": "struct Types.UserHistory memory"
                     }
                   },
@@ -1076,14 +1076,14 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 910,
+                        "id": 899,
                         "name": "newUserHistory",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 891,
+                        "referencedDeclaration": 880,
                         "src": "693:14:6",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_UserHistory_$539_memory_ptr",
+                          "typeIdentifier": "t_struct$_UserHistory_$528_memory_ptr",
                           "typeString": "struct Types.UserHistory memory"
                         }
                       }
@@ -1091,7 +1091,7 @@
                     "expression": {
                       "argumentTypes": [
                         {
-                          "typeIdentifier": "t_struct$_UserHistory_$539_memory_ptr",
+                          "typeIdentifier": "t_struct$_UserHistory_$528_memory_ptr",
                           "typeString": "struct Types.UserHistory memory"
                         }
                       ],
@@ -1101,41 +1101,41 @@
                           "argumentTypes": null,
                           "baseExpression": {
                             "argumentTypes": null,
-                            "id": 904,
+                            "id": 893,
                             "name": "lotHistory",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
                             "referencedDeclaration": 22,
                             "src": "648:10:6",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_mapping$_t_string_memory_$_t_struct$_LotHistory_$543_storage_$",
+                              "typeIdentifier": "t_mapping$_t_string_memory_$_t_struct$_LotHistory_$532_storage_$",
                               "typeString": "mapping(string memory => struct Types.LotHistory storage ref)"
                             }
                           },
-                          "id": 907,
+                          "id": 896,
                           "indexExpression": {
                             "argumentTypes": null,
                             "expression": {
                               "argumentTypes": null,
-                              "id": 905,
+                              "id": 894,
                               "name": "lot_",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 883,
+                              "referencedDeclaration": 872,
                               "src": "659:4:6",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_struct$_Lot_$526_storage_ptr",
+                                "typeIdentifier": "t_struct$_Lot_$515_storage_ptr",
                                 "typeString": "struct Types.Lot storage pointer"
                               }
                             },
-                            "id": 906,
+                            "id": 895,
                             "isConstant": false,
                             "isLValue": true,
                             "isPure": false,
                             "lValueRequested": false,
                             "memberName": "barcodeId",
                             "nodeType": "MemberAccess",
-                            "referencedDeclaration": 509,
+                            "referencedDeclaration": 498,
                             "src": "659:14:6",
                             "typeDescriptions": {
                               "typeIdentifier": "t_string_storage",
@@ -1149,25 +1149,25 @@
                           "nodeType": "IndexAccess",
                           "src": "648:26:6",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_struct$_LotHistory_$543_storage",
+                            "typeIdentifier": "t_struct$_LotHistory_$532_storage",
                             "typeString": "struct Types.LotHistory storage ref"
                           }
                         },
-                        "id": 908,
+                        "id": 897,
                         "isConstant": false,
                         "isLValue": true,
                         "isPure": false,
                         "lValueRequested": false,
                         "memberName": "usershistory",
                         "nodeType": "MemberAccess",
-                        "referencedDeclaration": 542,
+                        "referencedDeclaration": 531,
                         "src": "648:39:6",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_array$_t_struct$_UserHistory_$539_storage_$dyn_storage",
+                          "typeIdentifier": "t_array$_t_struct$_UserHistory_$528_storage_$dyn_storage",
                           "typeString": "struct Types.UserHistory storage ref[] storage ref"
                         }
                       },
-                      "id": 909,
+                      "id": 898,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -1177,11 +1177,11 @@
                       "referencedDeclaration": null,
                       "src": "648:44:6",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_function_arraypush_nonpayable$_t_struct$_UserHistory_$539_storage_$returns$_t_uint256_$",
+                        "typeIdentifier": "t_function_arraypush_nonpayable$_t_struct$_UserHistory_$528_storage_$returns$_t_uint256_$",
                         "typeString": "function (struct Types.UserHistory storage ref) returns (uint256)"
                       }
                     },
-                    "id": 911,
+                    "id": 900,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1195,14 +1195,14 @@
                       "typeString": "uint256"
                     }
                   },
-                  "id": 912,
+                  "id": 901,
                   "nodeType": "ExpressionStatement",
                   "src": "648:60:6"
                 }
               ]
             },
             "documentation": null,
-            "id": 914,
+            "id": 903,
             "implemented": true,
             "kind": "function",
             "modifiers": [
@@ -1210,11 +1210,11 @@
                 "arguments": [
                   {
                     "argumentTypes": null,
-                    "id": 877,
+                    "id": 866,
                     "name": "barcodeId_",
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
-                    "referencedDeclaration": 872,
+                    "referencedDeclaration": 861,
                     "src": "263:10:6",
                     "typeDescriptions": {
                       "typeIdentifier": "t_string_memory_ptr",
@@ -1222,10 +1222,10 @@
                     }
                   }
                 ],
-                "id": 878,
+                "id": 867,
                 "modifierName": {
                   "argumentTypes": null,
-                  "id": 876,
+                  "id": 865,
                   "name": "LotExists",
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
@@ -1243,15 +1243,15 @@
             "name": "update_StockDate",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 875,
+              "id": 864,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 872,
+                  "id": 861,
                   "name": "barcodeId_",
                   "nodeType": "VariableDeclaration",
-                  "scope": 914,
+                  "scope": 903,
                   "src": "196:24:6",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -1260,7 +1260,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 871,
+                    "id": 860,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "196:6:6",
@@ -1274,10 +1274,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 874,
+                  "id": 863,
                   "name": "newStockDate",
                   "nodeType": "VariableDeclaration",
-                  "scope": 914,
+                  "scope": 903,
                   "src": "222:20:6",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1286,7 +1286,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 873,
+                    "id": 862,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "222:7:6",
@@ -1302,19 +1302,19 @@
               "src": "195:48:6"
             },
             "returnParameters": {
-              "id": 879,
+              "id": 868,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "275:0:6"
             },
-            "scope": 915,
+            "scope": 904,
             "src": "170:541:6",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "internal"
           }
         ],
-        "scope": 916,
+        "scope": 905,
         "src": "147:566:6"
       }
     ],
@@ -1326,7 +1326,7 @@
   },
   "networks": {},
   "schemaVersion": "3.0.1",
-  "updatedAt": "2023-12-24T20:41:53.379Z",
+  "updatedAt": "2023-12-26T18:50:35.340Z",
   "devdoc": {
     "methods": {}
   },

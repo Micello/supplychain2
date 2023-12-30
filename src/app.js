@@ -1,5 +1,5 @@
 
-// Json file to be implemented from blockchain
+// Json files to be implemented from blockchain
 const json1 = '{"id_lot": 1, "barcodeId": "ABC123", "lot_user_addr": "0x404BEc9172f4c5579L0e9f2D9dBbdBc5feb4d215C", "source": "Supplier", "variety": "TypeA", "quality": "High", "temprature": 25, "humidity": 50,"date": 10, "stockdate": 0}';
 const jsonData1 = JSON.parse(json1);
 const json2 = '{"id_lot": 2, "barcodeId": "ABC124", "lot_user_addr": "0x404BEc9172f4c5579L0e9f2D9dBbdBc5feb4d215C", "source": "Supplier", "variety": "TypeA", "quality": "High", "temprature": 25, "humidity": 50,"date": 10, "stockdate": 0}';
@@ -28,7 +28,6 @@ App = {
 
   },
 
-  // https://medium.com/metamask/https-medium-com-metamask-breaking-change-injecting-web3-7722797916a8
   // Per funzionare ha bisogno di web3@0.20.6
   loadWeb3: async () => {
     if (typeof web3 !== 'undefined') {
@@ -37,23 +36,18 @@ App = {
     } else {
       window.alert("Please connect to Metamask.")
     }
-    // Modern dapp browsers...
     if (window.ethereum) {
       window.web3 = new Web3(ethereum)
       try {
         // Request account access if needed
         await ethereum.enable()
-        // Acccounts now exposed
         web3.eth.sendTransaction({/* ... */})
       } catch (error) {
-        // User denied account access...
       }
     }
-    // Legacy dapp browsers...
     else if (window.web3) {
       App.web3Provider = web3.currentProvider
       window.web3 = new Web3(web3.currentProvider)
-      // Acccounts always exposed
       web3.eth.sendTransaction({/* ... */})
     }
     // Non-dapp browsers...
@@ -73,8 +67,7 @@ App = {
     App.contracts.SupplyChain = TruffleContract(supplyChain)
     App.contracts.SupplyChain.setProvider(App.web3Provider)
 
-    // Hydrate the smart contract with values from the blockchain
-    App.supplyChain = await App.contracts.SupplyChain.deployed()
+
   },
 
   render: async () => {
@@ -134,14 +127,6 @@ App = {
   
     
 
-  
- 
-  
-
-
-
-
-
   setLoading: (boolean) => {
     App.loading = boolean
     const loader = $('#loader')
@@ -165,4 +150,3 @@ $(() => {
     });
   })
 })
-

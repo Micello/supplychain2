@@ -60,6 +60,7 @@ contract SupplyChain is Users, Lots, oss, sms {
         return getSpecificLot(barcodeId_);
     }
 
+
     
 
     function getSingleLotHistory(string memory barcodeId_)
